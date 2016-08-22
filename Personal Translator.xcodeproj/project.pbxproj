@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C04807871D5D07DE00AFD2BC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04807851D5D07DE00AFD2BC /* Interface.storyboard */; };
+		C04807891D5D07DE00AFD2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04807881D5D07DE00AFD2BC /* Assets.xcassets */; };
+		C04807901D5D07DE00AFD2BC /* Personal Translator Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C048078F1D5D07DE00AFD2BC /* Personal Translator Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C04807971D5D07DE00AFD2BC /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04807961D5D07DE00AFD2BC /* InterfaceController.swift */; };
+		C04807991D5D07DE00AFD2BC /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04807981D5D07DE00AFD2BC /* ExtensionDelegate.swift */; };
+		C048079B1D5D07DE00AFD2BC /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048079A1D5D07DE00AFD2BC /* NotificationController.swift */; };
+		C048079D1D5D07DE00AFD2BC /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048079C1D5D07DE00AFD2BC /* ComplicationController.swift */; };
+		C048079F1D5D07DE00AFD2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C048079E1D5D07DE00AFD2BC /* Assets.xcassets */; };
+		C04807A31D5D07DE00AFD2BC /* Personal Translator Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C04807831D5D07DE00AFD2BC /* Personal Translator Watch.app */; };
+		C04807AE1D5D2DA100AFD2BC /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */; };
+		C04807AF1D5D31B100AFD2BC /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */; };
+		C06D41E31D628F00002A4E7F /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D41E21D628F00002A4E7F /* Translator.swift */; };
 		C0B13CB01D2044EF006B7053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */; };
 		C0B13CB21D2044EF006B7053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CB11D2044EF006B7053 /* ViewController.swift */; };
 		C0B13CB51D2044EF006B7053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B13CB31D2044EF006B7053 /* Main.storyboard */; };
@@ -15,9 +27,27 @@
 		C0B13CBD1D2044EF006B7053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B13CBB1D2044EF006B7053 /* LaunchScreen.storyboard */; };
 		C0B13CC81D2044EF006B7053 /* Personal_TranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CC71D2044EF006B7053 /* Personal_TranslatorTests.swift */; };
 		C0B13CD31D2044F0006B7053 /* Personal_TranslatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CD21D2044F0006B7053 /* Personal_TranslatorUITests.swift */; };
+		C0BC8B581D6B623C00818679 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BC8B571D6B623C00818679 /* TesseractOCR.framework */; };
+		C0BC8B5A1D6B634500818679 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BC8B591D6B634500818679 /* libz.tbd */; };
+		C0CE56421D236A4600A08150 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CE56411D236A4600A08150 /* libstdc++.tbd */; };
+		C0CE56441D237A8D00A08150 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = C0CE56431D237A8D00A08150 /* tessdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C04807911D5D07DE00AFD2BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0B13CA41D2044EF006B7053 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C048078E1D5D07DE00AFD2BC;
+			remoteInfo = "Personal Translator Watch Extension";
+		};
+		C04807A11D5D07DE00AFD2BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0B13CA41D2044EF006B7053 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C04807821D5D07DE00AFD2BC;
+			remoteInfo = "Personal Translator Watch";
+		};
 		C0B13CC41D2044EF006B7053 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C0B13CA41D2044EF006B7053 /* Project object */;
@@ -34,7 +64,46 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C04807A91D5D07DE00AFD2BC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C04807901D5D07DE00AFD2BC /* Personal Translator Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C04807AB1D5D07DE00AFD2BC /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C04807A31D5D07DE00AFD2BC /* Personal Translator Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C04807831D5D07DE00AFD2BC /* Personal Translator Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C04807861D5D07DE00AFD2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C04807881D5D07DE00AFD2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C048078A1D5D07DE00AFD2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C048078F1D5D07DE00AFD2BC /* Personal Translator Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Personal Translator Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C04807951D5D07DE00AFD2BC /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C04807961D5D07DE00AFD2BC /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C04807981D5D07DE00AFD2BC /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C048079A1D5D07DE00AFD2BC /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		C048079C1D5D07DE00AFD2BC /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		C048079E1D5D07DE00AFD2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C04807A01D5D07DE00AFD2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchConnectivityManager.swift; path = Shared/WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		C06D41E21D628F00002A4E7F /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 		C0B13CAC1D2044EF006B7053 /* Personal Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B13CB11D2044EF006B7053 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,13 +118,28 @@
 		C0B13CCE1D2044F0006B7053 /* Personal TranslatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Personal TranslatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B13CD21D2044F0006B7053 /* Personal_TranslatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal_TranslatorUITests.swift; sourceTree = "<group>"; };
 		C0B13CD41D2044F0006B7053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0BC8B571D6B623C00818679 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = frameworks/arm/TesseractOCR.framework; sourceTree = "<group>"; };
+		C0BC8B591D6B634500818679 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C0CE563D1D2368B900A08150 /* Personal Translator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Personal Translator-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0CE56411D236A4600A08150 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		C0CE56431D237A8D00A08150 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C048078C1D5D07DE00AFD2BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0B13CA91D2044EF006B7053 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0BC8B5A1D6B634500818679 /* libz.tbd in Frameworks */,
+				C0BC8B581D6B623C00818679 /* TesseractOCR.framework in Frameworks */,
+				C0CE56421D236A4600A08150 /* libstdc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,13 +160,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C04807841D5D07DE00AFD2BC /* Personal Translator Watch */ = {
+			isa = PBXGroup;
+			children = (
+				C04807851D5D07DE00AFD2BC /* Interface.storyboard */,
+				C04807881D5D07DE00AFD2BC /* Assets.xcassets */,
+				C048078A1D5D07DE00AFD2BC /* Info.plist */,
+			);
+			path = "Personal Translator Watch";
+			sourceTree = "<group>";
+		};
+		C04807931D5D07DE00AFD2BC /* Personal Translator Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C04807961D5D07DE00AFD2BC /* InterfaceController.swift */,
+				C04807981D5D07DE00AFD2BC /* ExtensionDelegate.swift */,
+				C048079A1D5D07DE00AFD2BC /* NotificationController.swift */,
+				C048079C1D5D07DE00AFD2BC /* ComplicationController.swift */,
+				C048079E1D5D07DE00AFD2BC /* Assets.xcassets */,
+				C04807A01D5D07DE00AFD2BC /* Info.plist */,
+				C04807941D5D07DE00AFD2BC /* Supporting Files */,
+			);
+			path = "Personal Translator Watch Extension";
+			sourceTree = "<group>";
+		};
+		C04807941D5D07DE00AFD2BC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C04807951D5D07DE00AFD2BC /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C04807AC1D5D2C7D00AFD2BC /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		C06D41E11D62709F002A4E7F /* Translator */ = {
+			isa = PBXGroup;
+			children = (
+				C06D41E21D628F00002A4E7F /* Translator.swift */,
+			);
+			name = Translator;
+			sourceTree = "<group>";
+		};
 		C0B13CA31D2044EF006B7053 = {
 			isa = PBXGroup;
 			children = (
+				C06D41E11D62709F002A4E7F /* Translator */,
+				C04807AC1D5D2C7D00AFD2BC /* Shared */,
+				C0CE56431D237A8D00A08150 /* tessdata */,
 				C0B13CAE1D2044EF006B7053 /* Personal Translator */,
 				C0B13CC61D2044EF006B7053 /* Personal TranslatorTests */,
 				C0B13CD11D2044F0006B7053 /* Personal TranslatorUITests */,
+				C04807841D5D07DE00AFD2BC /* Personal Translator Watch */,
+				C04807931D5D07DE00AFD2BC /* Personal Translator Watch Extension */,
 				C0B13CAD1D2044EF006B7053 /* Products */,
+				C0CE563A1D23675700A08150 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +230,8 @@
 				C0B13CAC1D2044EF006B7053 /* Personal Translator.app */,
 				C0B13CC31D2044EF006B7053 /* Personal TranslatorTests.xctest */,
 				C0B13CCE1D2044F0006B7053 /* Personal TranslatorUITests.xctest */,
+				C04807831D5D07DE00AFD2BC /* Personal Translator Watch.app */,
+				C048078F1D5D07DE00AFD2BC /* Personal Translator Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +246,7 @@
 				C0B13CBB1D2044EF006B7053 /* LaunchScreen.storyboard */,
 				C0B13CBE1D2044EF006B7053 /* Info.plist */,
 				C0B13CB61D2044EF006B7053 /* Personal_Translator.xcdatamodeld */,
+				C0CE563D1D2368B900A08150 /* Personal Translator-Bridging-Header.h */,
 			);
 			path = "Personal Translator";
 			sourceTree = "<group>";
@@ -128,9 +269,53 @@
 			path = "Personal TranslatorUITests";
 			sourceTree = "<group>";
 		};
+		C0CE563A1D23675700A08150 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0BC8B591D6B634500818679 /* libz.tbd */,
+				C0BC8B571D6B623C00818679 /* TesseractOCR.framework */,
+				C0CE56411D236A4600A08150 /* libstdc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C04807821D5D07DE00AFD2BC /* Personal Translator Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C04807AA1D5D07DE00AFD2BC /* Build configuration list for PBXNativeTarget "Personal Translator Watch" */;
+			buildPhases = (
+				C04807811D5D07DE00AFD2BC /* Resources */,
+				C04807A91D5D07DE00AFD2BC /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C04807921D5D07DE00AFD2BC /* PBXTargetDependency */,
+			);
+			name = "Personal Translator Watch";
+			productName = "Personal Translator Watch";
+			productReference = C04807831D5D07DE00AFD2BC /* Personal Translator Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C048078E1D5D07DE00AFD2BC /* Personal Translator Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C04807A81D5D07DE00AFD2BC /* Build configuration list for PBXNativeTarget "Personal Translator Watch Extension" */;
+			buildPhases = (
+				C048078B1D5D07DE00AFD2BC /* Sources */,
+				C048078C1D5D07DE00AFD2BC /* Frameworks */,
+				C048078D1D5D07DE00AFD2BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Personal Translator Watch Extension";
+			productName = "Personal Translator Watch Extension";
+			productReference = C048078F1D5D07DE00AFD2BC /* Personal Translator Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		C0B13CAB1D2044EF006B7053 /* Personal Translator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0B13CD71D2044F0006B7053 /* Build configuration list for PBXNativeTarget "Personal Translator" */;
@@ -138,10 +323,12 @@
 				C0B13CA81D2044EF006B7053 /* Sources */,
 				C0B13CA91D2044EF006B7053 /* Frameworks */,
 				C0B13CAA1D2044EF006B7053 /* Resources */,
+				C04807AB1D5D07DE00AFD2BC /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C04807A21D5D07DE00AFD2BC /* PBXTargetDependency */,
 			);
 			name = "Personal Translator";
 			productName = "Personal Translator";
@@ -194,10 +381,21 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Carmelo I. Uria";
 				TargetAttributes = {
+					C04807821D5D07DE00AFD2BC = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 32SL43PW6T;
+						ProvisioningStyle = Automatic;
+					};
+					C048078E1D5D07DE00AFD2BC = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 32SL43PW6T;
+						ProvisioningStyle = Automatic;
+					};
 					C0B13CAB1D2044EF006B7053 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 32SL43PW6T;
 						DevelopmentTeamName = "Carmelo Uria";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					C0B13CC21D2044EF006B7053 = {
@@ -232,15 +430,35 @@
 				C0B13CAB1D2044EF006B7053 /* Personal Translator */,
 				C0B13CC21D2044EF006B7053 /* Personal TranslatorTests */,
 				C0B13CCD1D2044F0006B7053 /* Personal TranslatorUITests */,
+				C04807821D5D07DE00AFD2BC /* Personal Translator Watch */,
+				C048078E1D5D07DE00AFD2BC /* Personal Translator Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C04807811D5D07DE00AFD2BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C04807891D5D07DE00AFD2BC /* Assets.xcassets in Resources */,
+				C04807871D5D07DE00AFD2BC /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C048078D1D5D07DE00AFD2BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C048079F1D5D07DE00AFD2BC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0B13CAA1D2044EF006B7053 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CE56441D237A8D00A08150 /* tessdata in Resources */,
 				C0B13CBD1D2044EF006B7053 /* LaunchScreen.storyboard in Resources */,
 				C0B13CBA1D2044EF006B7053 /* Assets.xcassets in Resources */,
 				C0B13CB51D2044EF006B7053 /* Main.storyboard in Resources */,
@@ -264,13 +482,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C048078B1D5D07DE00AFD2BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C04807AF1D5D31B100AFD2BC /* WatchConnectivityManager.swift in Sources */,
+				C048079B1D5D07DE00AFD2BC /* NotificationController.swift in Sources */,
+				C048079D1D5D07DE00AFD2BC /* ComplicationController.swift in Sources */,
+				C04807991D5D07DE00AFD2BC /* ExtensionDelegate.swift in Sources */,
+				C04807971D5D07DE00AFD2BC /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0B13CA81D2044EF006B7053 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C0B13CB21D2044EF006B7053 /* ViewController.swift in Sources */,
 				C0B13CB81D2044EF006B7053 /* Personal_Translator.xcdatamodeld in Sources */,
+				C06D41E31D628F00002A4E7F /* Translator.swift in Sources */,
 				C0B13CB01D2044EF006B7053 /* AppDelegate.swift in Sources */,
+				C04807AE1D5D2DA100AFD2BC /* WatchConnectivityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +525,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C04807921D5D07DE00AFD2BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C048078E1D5D07DE00AFD2BC /* Personal Translator Watch Extension */;
+			targetProxy = C04807911D5D07DE00AFD2BC /* PBXContainerItemProxy */;
+		};
+		C04807A21D5D07DE00AFD2BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C04807821D5D07DE00AFD2BC /* Personal Translator Watch */;
+			targetProxy = C04807A11D5D07DE00AFD2BC /* PBXContainerItemProxy */;
+		};
 		C0B13CC51D2044EF006B7053 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C0B13CAB1D2044EF006B7053 /* Personal Translator */;
@@ -306,6 +548,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C04807851D5D07DE00AFD2BC /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C04807861D5D07DE00AFD2BC /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		C0B13CB31D2044EF006B7053 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -325,6 +575,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C04807A41D5D07DE00AFD2BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 32SL43PW6T;
+				IBSC_MODULE = Personal_Translator_Watch_Extension;
+				INFOPLIST_FILE = "Personal Translator Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carmelouria.Personal-Translator.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		C04807A51D5D07DE00AFD2BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 32SL43PW6T;
+				IBSC_MODULE = Personal_Translator_Watch_Extension;
+				INFOPLIST_FILE = "Personal Translator Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carmelouria.Personal-Translator.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		C04807A61D5D07DE00AFD2BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 32SL43PW6T;
+				INFOPLIST_FILE = "Personal Translator Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carmelouria.Personal-Translator.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		C04807A71D5D07DE00AFD2BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 32SL43PW6T;
+				INFOPLIST_FILE = "Personal Translator Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carmelouria.Personal-Translator.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
 		C0B13CD51D2044F0006B7053 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -418,10 +746,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/frameworks/arm",
+				);
 				INFOPLIST_FILE = "Personal Translator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.carmelouria.Personal-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Personal Translator/Personal Translator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -430,10 +767,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/frameworks/arm",
+				);
 				INFOPLIST_FILE = "Personal Translator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.carmelouria.Personal-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Personal Translator/Personal Translator-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -491,6 +836,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C04807A81D5D07DE00AFD2BC /* Build configuration list for PBXNativeTarget "Personal Translator Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C04807A61D5D07DE00AFD2BC /* Debug */,
+				C04807A71D5D07DE00AFD2BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C04807AA1D5D07DE00AFD2BC /* Build configuration list for PBXNativeTarget "Personal Translator Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C04807A41D5D07DE00AFD2BC /* Debug */,
+				C04807A51D5D07DE00AFD2BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C0B13CA71D2044EF006B7053 /* Build configuration list for PBXProject "Personal Translator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -507,6 +870,7 @@
 				C0B13CD91D2044F0006B7053 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0B13CDA1D2044F0006B7053 /* Build configuration list for PBXNativeTarget "Personal TranslatorTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +879,7 @@
 				C0B13CDC1D2044F0006B7053 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0B13CDD1D2044F0006B7053 /* Build configuration list for PBXNativeTarget "Personal TranslatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +888,7 @@
 				C0B13CDF1D2044F0006B7053 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
