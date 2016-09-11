@@ -27,6 +27,7 @@
 		C0B13CBD1D2044EF006B7053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B13CBB1D2044EF006B7053 /* LaunchScreen.storyboard */; };
 		C0B13CC81D2044EF006B7053 /* Personal_TranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CC71D2044EF006B7053 /* Personal_TranslatorTests.swift */; };
 		C0B13CD31D2044F0006B7053 /* Personal_TranslatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CD21D2044F0006B7053 /* Personal_TranslatorUITests.swift */; };
+		C0BC74541D84C9E100D09F80 /* SpeechProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC74531D84C9E100D09F80 /* SpeechProcessor.swift */; };
 		C0BC8B581D6B623C00818679 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BC8B571D6B623C00818679 /* TesseractOCR.framework */; };
 		C0BC8B5A1D6B634500818679 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BC8B591D6B634500818679 /* libz.tbd */; };
 		C0CE56421D236A4600A08150 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CE56411D236A4600A08150 /* libstdc++.tbd */; };
@@ -118,6 +119,7 @@
 		C0B13CCE1D2044F0006B7053 /* Personal TranslatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Personal TranslatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B13CD21D2044F0006B7053 /* Personal_TranslatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal_TranslatorUITests.swift; sourceTree = "<group>"; };
 		C0B13CD41D2044F0006B7053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0BC74531D84C9E100D09F80 /* SpeechProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechProcessor.swift; sourceTree = "<group>"; };
 		C0BC8B571D6B623C00818679 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = frameworks/arm/TesseractOCR.framework; sourceTree = "<group>"; };
 		C0BC8B591D6B634500818679 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C0CE563D1D2368B900A08150 /* Personal Translator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Personal Translator-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				C06D41E21D628F00002A4E7F /* Translator.swift */,
+				C0BC74531D84C9E100D09F80 /* SpeechProcessor.swift */,
 			);
 			name = Translator;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				C0B13CB81D2044EF006B7053 /* Personal_Translator.xcdatamodeld in Sources */,
 				C06D41E31D628F00002A4E7F /* Translator.swift in Sources */,
 				C0B13CB01D2044EF006B7053 /* AppDelegate.swift in Sources */,
+				C0BC74541D84C9E100D09F80 /* SpeechProcessor.swift in Sources */,
 				C04807AE1D5D2DA100AFD2BC /* WatchConnectivityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

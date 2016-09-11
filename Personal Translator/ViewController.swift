@@ -46,6 +46,7 @@ extension FloatingPoint
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, WatchConnectivityManagerPhoneDelegate, G8TesseractDelegate
 {
+
     let dispathQueue: DispatchQueue = DispatchQueue(label: "ImageQueue")
 
     var detector: CIDetector?
@@ -61,6 +62,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     private let captureSession = AVCaptureSession()
  
     private let tesseract: G8Tesseract = G8Tesseract()
+    
+    private let translator: Translator = Translator()
+    private let speechProcessor: SpeechProcessor = SpeechProcessor()
     
     private var session: WCSession?
 
@@ -127,8 +131,18 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         RunLoop.main.add(timer!, forMode: .defaultRunLoopMode)
         
+        // TEST
+        self.speechProcessor.speck(text: "James Bond 007")
+        /*
+        let text: String? = self.translator.translate(text: "Hello World", source: "en", target: "es")
+        
+        if (text != nil)
+        {
+            debugPrint("translation:  \(text)")
+        }
+        */
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -329,6 +343,25 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         CATransaction.commit()
 
         return textImages!
+    }
+
+    // MARK: - Action Methods
+    
+    @IBAction func freezeFrame(_ sender: UITapGestureRecognizer)
+    {
+        if (self.previewLayer?.connection.isEnabled == true)
+        {
+            self.previewLayer?.connection.isEnabled = false
+        }
+        else
+        {
+            self.previewLayer?.connection.isEnabled = true
+        }
+    }
+    
+    @IBAction func selectTextImageGesture(_ sender: UITapGestureRecognizer)
+    {
+        
     }
     
     // MARK: - private methods
