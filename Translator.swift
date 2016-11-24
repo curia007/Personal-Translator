@@ -16,7 +16,8 @@ class Translator
     private let GOOGLE_API_KEY: String = "AIzaSyCPAhE8Nc1sUEqEcVgLG6rfvgfEIaEi55M"
     private let GOOGLE_URL: String = "https://www.googleapis.com/language/translate/v2?key="
     
-    func translate(text: String, source: String, target: String) -> String?
+    
+    func translate(text: String, source: String, target: String, completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
     {
         // convert text
         let urlText: String = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
@@ -25,36 +26,11 @@ class Translator
         
         if (url != nil)
         {
-            self.sessionDataTask = self.session.dataTask(with: url!, completionHandler: { (data, response, error) in
-                if (error == nil)
-                {
-                    if (data != nil)
-                    {
-                        do {
-                            var json: Any?
-                          
-                            try json = JSONSerialization.jsonObject(with: data!, options: [JSONSerialization.ReadingOptions.mutableContainers])
-                            debugPrint("json: \(json)")
-                        }
-                        catch let jsonError
-                        {
-                            print(jsonError)
-                        }
-                        
-                     }
-                 }
-                else
-                {
-                    debugPrint("error:  \(error.debugDescription)")
-                }
-            })
-
+            self.sessionDataTask = self.session.dataTask(with: url!, completionHandler: completionHandler)
             sessionDataTask?.resume()
 
         }
         
-
-        return nil
     }
     
     private func googleTranslate(text: String, source: String, target: String) -> URL?

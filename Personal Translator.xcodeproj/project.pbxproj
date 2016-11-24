@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01788571DB2C446000BE2F3 /* Speech.framework */; };
 		C04807871D5D07DE00AFD2BC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04807851D5D07DE00AFD2BC /* Interface.storyboard */; };
 		C04807891D5D07DE00AFD2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04807881D5D07DE00AFD2BC /* Assets.xcassets */; };
 		C04807901D5D07DE00AFD2BC /* Personal Translator Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C048078F1D5D07DE00AFD2BC /* Personal Translator Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -91,6 +92,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C01788571DB2C446000BE2F3 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		C04807831D5D07DE00AFD2BC /* Personal Translator Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04807861D5D07DE00AFD2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C04807881D5D07DE00AFD2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */,
 				C0BC8B5A1D6B634500818679 /* libz.tbd in Frameworks */,
 				C0BC8B581D6B623C00818679 /* TesseractOCR.framework in Frameworks */,
 				C0CE56421D236A4600A08150 /* libstdc++.tbd in Frameworks */,
@@ -275,6 +278,7 @@
 		C0CE563A1D23675700A08150 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C01788571DB2C446000BE2F3 /* Speech.framework */,
 				C0BC8B591D6B634500818679 /* libz.tbd */,
 				C0BC8B571D6B623C00818679 /* TesseractOCR.framework */,
 				C0CE56411D236A4600A08150 /* libstdc++.tbd */,
@@ -381,7 +385,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Carmelo I. Uria";
 				TargetAttributes = {
 					C04807821D5D07DE00AFD2BC = {
@@ -672,8 +676,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -720,8 +726,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -44,7 +44,7 @@ extension FloatingPoint
     var radiansToDegrees: Self { return self * 180 / .pi }
 }
 
-class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, WatchConnectivityManagerPhoneDelegate, G8TesseractDelegate
+class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, WatchConnectivityManagerPhoneDelegate, G8TesseractDelegate, CLLocationManagerDelegate
 {
 
     let dispathQueue: DispatchQueue = DispatchQueue(label: "ImageQueue")
@@ -72,6 +72,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     private var drawLayer: CAShapeLayer?
     
+    private let systemLocale: Locale = Locale.current
+    private var systemCountryCode: String?
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -131,8 +134,21 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         RunLoop.main.add(timer!, forMode: .defaultRunLoopMode)
         
-        // TEST
-        self.speechProcessor.speck(text: "James Bond 007")
+        self.systemCountryCode = self.systemLocale.currencyCode
+        
+        self.locationManager.delegate = self
+        self.locationManager.startUpdatingLocation()
+        
+    
+        do
+        {
+            try self.speechProcessor.recognizeSpeech()
+        }
+        catch
+        {
+            debugPrint("Error:   \(error) ")
+        }
+          
         /*
         let text: String? = self.translator.translate(text: "Hello World", source: "en", target: "es")
         
@@ -435,8 +451,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     private func devices() -> [Any]
     {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
-        let devices = AVCaptureDevice.devices()
-        print(devices)
+        
+        let deviceDiscoverySession = AVCaptureDeviceDiscoverySession(deviceTypes: [AVCaptureDeviceType.builtInDuoCamera], mediaType: AVMediaTypeVideo, position: AVCaptureDevicePosition.back)
+        
+        let devices = deviceDiscoverySession?.devices
+  
+        if (devices != nil)
+        {
+            print(devices!)
+        }
         
         return devices!
     }
@@ -653,6 +676,17 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
     }
     
+    // MARK: - LocationManagerDelegate methoda
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        
+    }
 }
 
 extension ViewController
