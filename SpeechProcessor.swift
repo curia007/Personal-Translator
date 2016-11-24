@@ -83,7 +83,6 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
             {
                 text = result.bestTranscription.formattedString
                 isFinal = result.isFinal
-                isFinal = true
             }
             
             if (error != nil || isFinal)
