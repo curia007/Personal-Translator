@@ -24,8 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         if WCSession.isSupported()
         {
             let defaultSession = WCSession.default()
+  
             defaultSession.delegate = WatchConnectivityManager.sharedConnectivityManager
             defaultSession.activate()
+            
+            debugPrint("WCSession is supported and activate")
+        }
+        else
+        {
+            debugPrint("WCSession is not supported...")
         }
         
         return true

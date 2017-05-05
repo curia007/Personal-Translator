@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00DBD321E4066E200E88366 /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00DBD2B1E4066BD00E88366 /* SwiftOCR.framework */; };
+		C00DBD331E4066E200E88366 /* SwiftOCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C00DBD2B1E4066BD00E88366 /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01788571DB2C446000BE2F3 /* Speech.framework */; };
 		C04807871D5D07DE00AFD2BC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04807851D5D07DE00AFD2BC /* Interface.storyboard */; };
 		C04807891D5D07DE00AFD2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04807881D5D07DE00AFD2BC /* Assets.xcassets */; };
@@ -29,13 +31,60 @@
 		C0B13CC81D2044EF006B7053 /* Personal_TranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CC71D2044EF006B7053 /* Personal_TranslatorTests.swift */; };
 		C0B13CD31D2044F0006B7053 /* Personal_TranslatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CD21D2044F0006B7053 /* Personal_TranslatorUITests.swift */; };
 		C0BC74541D84C9E100D09F80 /* SpeechProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC74531D84C9E100D09F80 /* SpeechProcessor.swift */; };
-		C0BC8B581D6B623C00818679 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BC8B571D6B623C00818679 /* TesseractOCR.framework */; };
 		C0BC8B5A1D6B634500818679 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BC8B591D6B634500818679 /* libz.tbd */; };
 		C0CE56421D236A4600A08150 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CE56411D236A4600A08150 /* libstdc++.tbd */; };
-		C0CE56441D237A8D00A08150 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = C0CE56431D237A8D00A08150 /* tessdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C00DBD2A1E4066BD00E88366 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C00DBD211E4066BC00E88366 /* SwiftOCR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 373ED0AF1CC9071C00C4758B;
+			remoteInfo = SwiftOCR;
+		};
+		C00DBD2C1E4066BD00E88366 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C00DBD211E4066BC00E88366 /* SwiftOCR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 373ED0B91CC9071D00C4758B;
+			remoteInfo = SwiftOCRTests;
+		};
+		C00DBD2E1E4066BD00E88366 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C00DBD211E4066BC00E88366 /* SwiftOCR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 373ED0E61CC909A500C4758B;
+			remoteInfo = "SwiftOCR Mac";
+		};
+		C00DBD301E4066BD00E88366 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C00DBD211E4066BC00E88366 /* SwiftOCR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 373ED0EF1CC909A500C4758B;
+			remoteInfo = "SwiftOCR MacTests";
+		};
+		C00DBD341E4066E200E88366 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C00DBD211E4066BC00E88366 /* SwiftOCR.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 373ED0AE1CC9071C00C4758B;
+			remoteInfo = SwiftOCR;
+		};
+		C0424EE61E7213CB0057A5E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0424EE01E7213CA0057A5E7 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		C0424EE81E7213CB0057A5E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0424EE01E7213CA0057A5E7 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 		C04807911D5D07DE00AFD2BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C0B13CA41D2044EF006B7053 /* Project object */;
@@ -67,6 +116,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C00DBD361E4066E200E88366 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C00DBD331E4066E200E88366 /* SwiftOCR.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C04807A91D5D07DE00AFD2BC /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,7 +152,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C00DBD211E4066BC00E88366 /* SwiftOCR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftOCR.xcodeproj; path = ../Libraries/SwiftOCR/SwiftOCR.xcodeproj; sourceTree = "<group>"; };
 		C01788571DB2C446000BE2F3 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		C0424EE01E7213CA0057A5E7 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../Libraries/SwiftOCR/SwiftOCR/GPUImage-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		C04355211E2C226E001FCF5A /* Personal Translator Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Personal Translator Watch Extension.entitlements"; sourceTree = "<group>"; };
+		C04355221E2C229E001FCF5A /* Personal Translator Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Personal Translator Watch.entitlements"; sourceTree = "<group>"; };
+		C04355231E2C22CA001FCF5A /* Personal Translator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Personal Translator.entitlements"; sourceTree = "<group>"; };
 		C04807831D5D07DE00AFD2BC /* Personal Translator Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04807861D5D07DE00AFD2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C04807881D5D07DE00AFD2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,11 +187,9 @@
 		C0B13CD21D2044F0006B7053 /* Personal_TranslatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal_TranslatorUITests.swift; sourceTree = "<group>"; };
 		C0B13CD41D2044F0006B7053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0BC74531D84C9E100D09F80 /* SpeechProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechProcessor.swift; sourceTree = "<group>"; };
-		C0BC8B571D6B623C00818679 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = frameworks/arm/TesseractOCR.framework; sourceTree = "<group>"; };
 		C0BC8B591D6B634500818679 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C0CE563D1D2368B900A08150 /* Personal Translator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Personal Translator-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0CE56411D236A4600A08150 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
-		C0CE56431D237A8D00A08150 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +206,8 @@
 			files = (
 				C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */,
 				C0BC8B5A1D6B634500818679 /* libz.tbd in Frameworks */,
-				C0BC8B581D6B623C00818679 /* TesseractOCR.framework in Frameworks */,
 				C0CE56421D236A4600A08150 /* libstdc++.tbd in Frameworks */,
+				C00DBD321E4066E200E88366 /* SwiftOCR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,9 +228,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C00DBD221E4066BC00E88366 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C00DBD2B1E4066BD00E88366 /* SwiftOCR.framework */,
+				C00DBD2D1E4066BD00E88366 /* SwiftOCRTests.xctest */,
+				C00DBD2F1E4066BD00E88366 /* SwiftOCR.framework */,
+				C00DBD311E4066BD00E88366 /* SwiftOCR MacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0424EE11E7213CA0057A5E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0424EE71E7213CB0057A5E7 /* libGPUImage.a */,
+				C0424EE91E7213CB0057A5E7 /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C04807841D5D07DE00AFD2BC /* Personal Translator Watch */ = {
 			isa = PBXGroup;
 			children = (
+				C04355221E2C229E001FCF5A /* Personal Translator Watch.entitlements */,
 				C04807851D5D07DE00AFD2BC /* Interface.storyboard */,
 				C04807881D5D07DE00AFD2BC /* Assets.xcassets */,
 				C048078A1D5D07DE00AFD2BC /* Info.plist */,
@@ -178,6 +262,7 @@
 		C04807931D5D07DE00AFD2BC /* Personal Translator Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C04355211E2C226E001FCF5A /* Personal Translator Watch Extension.entitlements */,
 				C04807961D5D07DE00AFD2BC /* InterfaceController.swift */,
 				C04807981D5D07DE00AFD2BC /* ExtensionDelegate.swift */,
 				C048079A1D5D07DE00AFD2BC /* NotificationController.swift */,
@@ -200,6 +285,7 @@
 		C04807AC1D5D2C7D00AFD2BC /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				C06D41E11D62709F002A4E7F /* Translator */,
 				C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */,
 			);
 			name = Shared;
@@ -217,9 +303,7 @@
 		C0B13CA31D2044EF006B7053 = {
 			isa = PBXGroup;
 			children = (
-				C06D41E11D62709F002A4E7F /* Translator */,
 				C04807AC1D5D2C7D00AFD2BC /* Shared */,
-				C0CE56431D237A8D00A08150 /* tessdata */,
 				C0B13CAE1D2044EF006B7053 /* Personal Translator */,
 				C0B13CC61D2044EF006B7053 /* Personal TranslatorTests */,
 				C0B13CD11D2044F0006B7053 /* Personal TranslatorUITests */,
@@ -245,6 +329,7 @@
 		C0B13CAE1D2044EF006B7053 /* Personal Translator */ = {
 			isa = PBXGroup;
 			children = (
+				C04355231E2C22CA001FCF5A /* Personal Translator.entitlements */,
 				C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */,
 				C0B13CB11D2044EF006B7053 /* ViewController.swift */,
 				C0B13CB31D2044EF006B7053 /* Main.storyboard */,
@@ -278,10 +363,11 @@
 		C0CE563A1D23675700A08150 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C00DBD211E4066BC00E88366 /* SwiftOCR.xcodeproj */,
 				C01788571DB2C446000BE2F3 /* Speech.framework */,
 				C0BC8B591D6B634500818679 /* libz.tbd */,
-				C0BC8B571D6B623C00818679 /* TesseractOCR.framework */,
 				C0CE56411D236A4600A08150 /* libstdc++.tbd */,
+				C0424EE01E7213CA0057A5E7 /* GPUImage.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -331,11 +417,13 @@
 				C0B13CA91D2044EF006B7053 /* Frameworks */,
 				C0B13CAA1D2044EF006B7053 /* Resources */,
 				C04807AB1D5D07DE00AFD2BC /* Embed Watch Content */,
+				C00DBD361E4066E200E88366 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C04807A21D5D07DE00AFD2BC /* PBXTargetDependency */,
+				C00DBD351E4066E200E88366 /* PBXTargetDependency */,
 			);
 			name = "Personal Translator";
 			productName = "Personal Translator";
@@ -392,11 +480,21 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 32SL43PW6T;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C048078E1D5D07DE00AFD2BC = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 32SL43PW6T;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C0B13CAB1D2044EF006B7053 = {
 						CreatedOnToolsVersion = 8.0;
@@ -404,6 +502,11 @@
 						DevelopmentTeamName = "Carmelo Uria";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C0B13CC21D2044EF006B7053 = {
 						CreatedOnToolsVersion = 8.0;
@@ -432,6 +535,16 @@
 			mainGroup = C0B13CA31D2044EF006B7053;
 			productRefGroup = C0B13CAD1D2044EF006B7053 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C0424EE11E7213CA0057A5E7 /* Products */;
+					ProjectRef = C0424EE01E7213CA0057A5E7 /* GPUImage.xcodeproj */;
+				},
+				{
+					ProductGroup = C00DBD221E4066BC00E88366 /* Products */;
+					ProjectRef = C00DBD211E4066BC00E88366 /* SwiftOCR.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C0B13CAB1D2044EF006B7053 /* Personal Translator */,
@@ -442,6 +555,51 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C00DBD2B1E4066BD00E88366 /* SwiftOCR.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftOCR.framework;
+			remoteRef = C00DBD2A1E4066BD00E88366 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C00DBD2D1E4066BD00E88366 /* SwiftOCRTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftOCRTests.xctest;
+			remoteRef = C00DBD2C1E4066BD00E88366 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C00DBD2F1E4066BD00E88366 /* SwiftOCR.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftOCR.framework;
+			remoteRef = C00DBD2E1E4066BD00E88366 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C00DBD311E4066BD00E88366 /* SwiftOCR MacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftOCR MacTests.xctest";
+			remoteRef = C00DBD301E4066BD00E88366 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C0424EE71E7213CB0057A5E7 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = C0424EE61E7213CB0057A5E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C0424EE91E7213CB0057A5E7 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = C0424EE81E7213CB0057A5E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C04807811D5D07DE00AFD2BC /* Resources */ = {
@@ -465,7 +623,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0CE56441D237A8D00A08150 /* tessdata in Resources */,
 				C0B13CBD1D2044EF006B7053 /* LaunchScreen.storyboard in Resources */,
 				C0B13CBA1D2044EF006B7053 /* Assets.xcassets in Resources */,
 				C0B13CB51D2044EF006B7053 /* Main.storyboard in Resources */,
@@ -533,6 +690,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C00DBD351E4066E200E88366 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftOCR;
+			targetProxy = C00DBD341E4066E200E88366 /* PBXContainerItemProxy */;
+		};
 		C04807921D5D07DE00AFD2BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C048078E1D5D07DE00AFD2BC /* Personal Translator Watch Extension */;
@@ -590,6 +752,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator Watch/Personal Translator Watch.entitlements";
 				DEVELOPMENT_TEAM = 32SL43PW6T;
 				IBSC_MODULE = Personal_Translator_Watch_Extension;
 				INFOPLIST_FILE = "Personal Translator Watch/Info.plist";
@@ -610,6 +773,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator Watch/Personal Translator Watch.entitlements";
 				DEVELOPMENT_TEAM = 32SL43PW6T;
 				IBSC_MODULE = Personal_Translator_Watch_Extension;
 				INFOPLIST_FILE = "Personal Translator Watch/Info.plist";
@@ -629,6 +793,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator Watch Extension/Personal Translator Watch Extension.entitlements";
 				DEVELOPMENT_TEAM = 32SL43PW6T;
 				INFOPLIST_FILE = "Personal Translator Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -648,6 +813,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator Watch Extension/Personal Translator Watch Extension.entitlements";
 				DEVELOPMENT_TEAM = 32SL43PW6T;
 				INFOPLIST_FILE = "Personal Translator Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -757,9 +923,11 @@
 		C0B13CD81D2044F0006B7053 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator/Personal Translator.entitlements";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -778,9 +946,11 @@
 		C0B13CD91D2044F0006B7053 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator/Personal Translator.entitlements";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

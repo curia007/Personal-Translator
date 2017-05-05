@@ -164,6 +164,84 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
         
     }
 
+    public func recognizeFile(url: URL)
+    {
+        guard let recognizer = SFSpeechRecognizer() else {
+            // A recognizer is not supported for the current locale
+            return
+        }
+        
+        if !recognizer.isAvailable
+        {
+            // The recognizer is not available right now
+            return
+        }
+        
+        let request = SFSpeechURLRecognitionRequest(url: url)
+        recognizer.recognitionTask(with: request) { (result, error) in
+            guard let result = result else {
+                // Recognition failed, so check error for details and handle it
+                return
+            }
+            
+            if result.isFinal
+            {
+                // Print the speech that has been recognized so far
+                debugPrint("Speech in the file is \(result.bestTranscription.formattedString)")
+                
+                let translator: Translator = Translator()
+                
+                translator.translate(text: result.bestTranscription.formattedString, source: "en", target: "es", completionHandler: { (data, response, error) in
+                    if (error == nil)
+                    {
+                        if (data != nil)
+                        {
+                            do {
+                                var json: Any?
+                                
+                                try json = JSONSerialization.jsonObject(with: data!, options: [JSONSerialization.ReadingOptions.mutableContainers])
+                                
+                                if let jsonResult = json as? Dictionary<String, Any>
+                                {
+                                    debugPrint("json: \(jsonResult)")
+                                    
+                                    if let dataValue = jsonResult["data"] as? Dictionary<String, Any>
+                                    {
+                                        debugPrint("translation: \(dataValue)")
+                                        
+                                        if let translations = dataValue["translations"] as? [Dictionary<String, Any>]
+                                        {
+                                            for translation in translations
+                                            {
+                                                if let translatedText = translation["translatedText"] as? String
+                                                {
+                                                    debugPrint("translatedText = \(translatedText)")
+                                                    self.speak(text: translatedText)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            catch let jsonError
+                            {
+                                print(jsonError)
+                            }
+                            
+                        }
+                    }
+                    else
+                    {
+                        debugPrint("error:  \(error.debugDescription)")
+                    }
+                    
+                    
+                })
+
+            }
+        }
+    }
+
     private func authorize()
     {
         SFSpeechRecognizer.requestAuthorization { (status) in

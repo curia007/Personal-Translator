@@ -60,8 +60,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     private var captureVideoDataOutput: AVCaptureVideoDataOutput?
     private var captureMovieFileOutput: AVCaptureMovieFileOutput!
     private let captureSession = AVCaptureSession()
- 
-    private let tesseract: G8Tesseract = G8Tesseract()
     
     private let translator: Translator = Translator()
     private let speechProcessor: SpeechProcessor = SpeechProcessor()
@@ -130,7 +128,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             
          })
         
-        self.tesseract.delegate = self
+//        self.tesseract.delegate = self
         
         RunLoop.main.add(timer!, forMode: .defaultRunLoopMode)
         
@@ -139,7 +137,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
         
-    
         do
         {
             try self.speechProcessor.recognizeSpeech()
@@ -148,16 +145,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         {
             debugPrint("Error:   \(error) ")
         }
-          
-        /*
-        let text: String? = self.translator.translate(text: "Hello World", source: "en", target: "es")
-        
-        if (text != nil)
-        {
-            debugPrint("translation:  \(text)")
-        }
-        */
-    }
+       
+     }
     
     override func didReceiveMemoryWarning()
     {
@@ -210,6 +199,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     @nonobjc func performImageRecognition(images: [CIImage])
     {
+        /*
         self.tesseract.language = "eng"
         self.tesseract.engineMode = .tesseractCubeCombined
         self.tesseract.pageSegmentationMode = .auto
@@ -232,7 +222,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             }
             
         }
-        
+        */
     }
 
     // called asynchronously as the capture output is capturing sample buffers, this method asks the face detector
@@ -373,11 +363,44 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         {
             self.previewLayer?.connection.isEnabled = true
         }
+        
+        // TEST
+        if (WCSession.default().activationState == .activated)
+        {
+            WCSession.default().transferUserInfo(["text": "Hello World" as AnyObject])
+        }
+        else
+        {
+            debugPrint("WCSession is not active...")
+        }
+        
     }
     
     @IBAction func selectTextImageGesture(_ sender: UITapGestureRecognizer)
     {
+        // TEST
+        let isPaired: Bool = WCSession.default().isPaired
+
+        if (isPaired == true)
+        {
+            debugPrint("Device is paired...")
+        }
+        else
+        {
+            debugPrint("Device is not paired...")
+        }
         
+        if (WCSession.isSupported())
+        {
+            let session: WCSession = WCSession.default()
+        
+            session.transferUserInfo(["text": "Hello World" as AnyObject])
+            session.sendMessage(["text" : "Hello World"], replyHandler: { (response) in
+            
+            }) { (error) in
+            
+            }
+        }
     }
     
     // MARK: - private methods
@@ -543,23 +566,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             
         }
     }
-    
-    /*
-    private func initializeSession() -> WCSession?
-    {
-        if WCSession.isSupported()
-        {
-            let session = WCSession.default()
-            session.delegate = self
-            session.activate()
-            
-            return session
-        }
         
-        return nil
-    }
-    */
-    
     private func applyFeatures(features: [CIFeature]?, aperture: CGRect)
     {
         if (features == nil)
@@ -699,6 +706,16 @@ extension ViewController
         })
     }
     
+    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, translateText text: String)
+    {
+        
+    }
+ 
+    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, translate url: URL )
+    {
+        debugPrint("Retrieved URL...")
+    }
+
 }
 
 extension ViewController

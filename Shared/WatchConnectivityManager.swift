@@ -17,14 +17,17 @@ import WatchConnectivity
 
 @objc protocol WatchConnectivityManagerPhoneDelegate: class
 {
-    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, updatedWithVideo video: Data)
+    @objc optional func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, updatedWithVideo video: Data)
     @objc optional func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, testConnectivity message: String)
+    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, translateText text: String)
+
+    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, translate url: URL)
+
 }
 
 protocol WatchConnectivityManagerWatchDelegate: class
 {
-    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, testConnectivity message: String)
-
+    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, translatedMessage message: String)
 }
 
 class WatchConnectivityManager: NSObject, WCSessionDelegate
@@ -61,7 +64,7 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate
         }
         
         // Inform the delegate.
-            delegate?.watchConnectivityManager(self, updatedWithVideo: video)
+            delegate?.watchConnectivityManager!(self, updatedWithVideo: video)
         #endif
     }
     
@@ -79,21 +82,37 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate
     
     @nonobjc func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:]) {
         #if os(watchOS)
-            guard (userInfo["Video"] as? Data) != nil else {
+            guard (userInfo["text"] as? Data) != nil else {
                 // If the expected values are unavailable in the `userInfo`, then skip it.
+                debugPrint("UserInfo does not contain proper dictonary")
                 return
             }
             
             // Inform the delegate.
-            delegate?.watchConnectivityManager(self, testConnectivity: "Test")
+            delegate?.watchConnectivityManager(self, translatedMessage: "Test")
+        #else
+            debugPrint("\(#function) not watchOS")
+        #endif
+    }
+    
+    func session(_ session: WCSession, didReceive file: WCSessionFile)
+    {
+        debugPrint("Session did receive file: \(file)")
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any])
+    {
+        debugPrint("Did get received message")
+        #if os(watchOS)
+        delegate?.watchConnectivityManager(self, translatedMessage: "James Bond 007")
         #endif
     }
     
     func session(_ session: WCSession, didFinish userInfoTransfer: WCSessionUserInfoTransfer, error: Error?) {
         if let error = error {
-            print("\(error.localizedDescription)")
+            print("userInfoTransfer Error:  \(error.localizedDescription)")
         } else {
-            print("completed transfer of \(userInfoTransfer)")
+            print("completed userInfoTransfer of \(userInfoTransfer)")
         }
     }
     

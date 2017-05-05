@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11535.1" systemVersion="16B2548a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D25a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
@@ -13,14 +13,32 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Personal_Translator_Watch" customModuleProvider="target">
                     <items>
-                        <imageView height="163" alignment="left" id="9jN-l5-O1T"/>
+                        <group width="1" alignment="left" id="Bvo-ca-HFj">
+                            <items>
+                                <label width="153" alignment="left" text="Label" id="Ii5-Pq-j2F"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="adT-KW-9Bh">
+                            <items>
+                                <button width="1" alignment="left" backgroundImage="images" id="IOd-rd-5iu">
+                                    <connections>
+                                        <action selector="startRecording" destination="AgC-eL-Hgc" id="6LZ-hv-vb9"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="ckK-kP-AGk">
+                            <items>
+                                <label width="156" height="44" alignment="left" text="Label" id="LLC-eM-qEH"/>
+                            </items>
+                        </group>
                     </items>
                     <connections>
-                        <outlet property="imageInterface" destination="9jN-l5-O1T" id="IhW-BE-fZ2"/>
+                        <outlet property="recordButton" destination="IOd-rd-5iu" id="va4-Fu-qlK"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="219.69230769230771" y="347.41025641025641"/>
+            <point key="canvasLocation" x="219.69230769230771" y="346.53846153846155"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
