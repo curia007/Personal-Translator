@@ -13,8 +13,8 @@ class Translator
     private var sessionDataTask: URLSessionDataTask?
     private let session:  URLSession = URLSession(configuration: URLSessionConfiguration.default)
     
-    private let GOOGLE_API_KEY: String = "AIzaSyCPAhE8Nc1sUEqEcVgLG6rfvgfEIaEi55M"
-    private let GOOGLE_URL: String = "https://www.googleapis.com/language/translate/v2?key="
+    private let GOOGLE_API_KEY: String = "API_KEY"
+    private let GOOGLE_URL: String = "GOOGLE_URL"
     
     
     func translate(text: String, source: String, target: String, completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
