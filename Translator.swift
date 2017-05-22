@@ -35,10 +35,6 @@ class Translator
     
     private func googleTranslate(text: String, source: String, target: String) -> URL?
     {
-        // API Key:  AIzaSyDJqoIr8wHi8E8Rpiyuk4MevQKhdF8iQwY
-        // source language: en (location)
-        // target language:
-        //www.googleapis.com/language/translate/v2?key=AIzaSyDJqoIr8wHi8E8Rpiyuk4MevQKhdF8iQwY&source=en&target=es&q=Hello world
         
         let urlString: String = GOOGLE_URL + GOOGLE_API_KEY + "&source=\(source)" + "&target=\(target)&q=\(text)"
         let url: URL? = URL(string: urlString)
