@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C00DBD321E4066E200E88366 /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00DBD2B1E4066BD00E88366 /* SwiftOCR.framework */; };
-		C00DBD331E4066E200E88366 /* SwiftOCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C00DBD2B1E4066BD00E88366 /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01788571DB2C446000BE2F3 /* Speech.framework */; };
 		C04807871D5D07DE00AFD2BC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04807851D5D07DE00AFD2BC /* Interface.storyboard */; };
 		C04807891D5D07DE00AFD2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04807881D5D07DE00AFD2BC /* Assets.xcassets */; };
@@ -21,9 +19,13 @@
 		C04807A31D5D07DE00AFD2BC /* Personal Translator Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C04807831D5D07DE00AFD2BC /* Personal Translator Watch.app */; };
 		C04807AE1D5D2DA100AFD2BC /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */; };
 		C04807AF1D5D31B100AFD2BC /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */; };
+		C049031E1FB219B50047B028 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C049031D1FB219B50047B028 /* MainViewController.swift */; };
 		C06D41E31D628F00002A4E7F /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D41E21D628F00002A4E7F /* Translator.swift */; };
+		C06F7F391FB233B000A52AB4 /* TranslatorScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */; };
+		C06F7F3C1FB234B400A52AB4 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F3B1FB234B300A52AB4 /* Inceptionv3.mlmodel */; };
+		C06F7F3E1FB2358600A52AB4 /* SceneImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */; };
+		C06F7F411FB236B300A52AB4 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C06F7F401FB236B300A52AB4 /* Scene.sks */; };
 		C0B13CB01D2044EF006B7053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */; };
-		C0B13CB21D2044EF006B7053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CB11D2044EF006B7053 /* ViewController.swift */; };
 		C0B13CB51D2044EF006B7053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B13CB31D2044EF006B7053 /* Main.storyboard */; };
 		C0B13CB81D2044EF006B7053 /* Personal_Translator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CB61D2044EF006B7053 /* Personal_Translator.xcdatamodeld */; };
 		C0B13CBA1D2044EF006B7053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B13CB91D2044EF006B7053 /* Assets.xcassets */; };
@@ -31,8 +33,6 @@
 		C0B13CC81D2044EF006B7053 /* Personal_TranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CC71D2044EF006B7053 /* Personal_TranslatorTests.swift */; };
 		C0B13CD31D2044F0006B7053 /* Personal_TranslatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CD21D2044F0006B7053 /* Personal_TranslatorUITests.swift */; };
 		C0BC74541D84C9E100D09F80 /* SpeechProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC74531D84C9E100D09F80 /* SpeechProcessor.swift */; };
-		C0BC8B5A1D6B634500818679 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BC8B591D6B634500818679 /* libz.tbd */; };
-		C0CE56421D236A4600A08150 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CE56411D236A4600A08150 /* libstdc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +122,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C00DBD331E4066E200E88366 /* SwiftOCR.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,10 +170,14 @@
 		C048079E1D5D07DE00AFD2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04807A01D5D07DE00AFD2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchConnectivityManager.swift; path = Shared/WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		C049031D1FB219B50047B028 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C06D41E21D628F00002A4E7F /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
+		C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorScene.swift; sourceTree = "<group>"; };
+		C06F7F3B1FB234B300A52AB4 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneImage.swift; sourceTree = "<group>"; };
+		C06F7F401FB236B300A52AB4 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		C0B13CAC1D2044EF006B7053 /* Personal Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0B13CB11D2044EF006B7053 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0B13CB41D2044EF006B7053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0B13CB71D2044EF006B7053 /* Personal_Translator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Personal_Translator.xcdatamodel; sourceTree = "<group>"; };
 		C0B13CB91D2044EF006B7053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,7 +191,6 @@
 		C0B13CD41D2044F0006B7053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0BC74531D84C9E100D09F80 /* SpeechProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechProcessor.swift; sourceTree = "<group>"; };
 		C0BC8B591D6B634500818679 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		C0CE563D1D2368B900A08150 /* Personal Translator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Personal Translator-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0CE56411D236A4600A08150 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -205,9 +207,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */,
-				C0BC8B5A1D6B634500818679 /* libz.tbd in Frameworks */,
-				C0CE56421D236A4600A08150 /* libstdc++.tbd in Frameworks */,
-				C00DBD321E4066E200E88366 /* SwiftOCR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +299,31 @@
 			name = Translator;
 			sourceTree = "<group>";
 		};
+		C06F7F371FB2337E00A52AB4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */,
+				C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C06F7F3A1FB2343300A52AB4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C06F7F3B1FB234B300A52AB4 /* Inceptionv3.mlmodel */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C06F7F3F1FB2368200A52AB4 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				C06F7F401FB236B300A52AB4 /* Scene.sks */,
+			);
+			path = scene;
+			sourceTree = "<group>";
+		};
 		C0B13CA31D2044EF006B7053 = {
 			isa = PBXGroup;
 			children = (
@@ -329,15 +353,17 @@
 		C0B13CAE1D2044EF006B7053 /* Personal Translator */ = {
 			isa = PBXGroup;
 			children = (
+				C06F7F3F1FB2368200A52AB4 /* scene */,
+				C06F7F3A1FB2343300A52AB4 /* model */,
+				C06F7F371FB2337E00A52AB4 /* view */,
 				C04355231E2C22CA001FCF5A /* Personal Translator.entitlements */,
 				C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */,
-				C0B13CB11D2044EF006B7053 /* ViewController.swift */,
 				C0B13CB31D2044EF006B7053 /* Main.storyboard */,
 				C0B13CB91D2044EF006B7053 /* Assets.xcassets */,
 				C0B13CBB1D2044EF006B7053 /* LaunchScreen.storyboard */,
 				C0B13CBE1D2044EF006B7053 /* Info.plist */,
 				C0B13CB61D2044EF006B7053 /* Personal_Translator.xcdatamodeld */,
-				C0CE563D1D2368B900A08150 /* Personal Translator-Bridging-Header.h */,
+				C049031D1FB219B50047B028 /* MainViewController.swift */,
 			);
 			path = "Personal Translator";
 			sourceTree = "<group>";
@@ -525,7 +551,7 @@
 				};
 			};
 			buildConfigurationList = C0B13CA71D2044EF006B7053 /* Build configuration list for PBXProject "Personal Translator" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -625,6 +651,7 @@
 			files = (
 				C0B13CBD1D2044EF006B7053 /* LaunchScreen.storyboard in Resources */,
 				C0B13CBA1D2044EF006B7053 /* Assets.xcassets in Resources */,
+				C06F7F411FB236B300A52AB4 /* Scene.sks in Resources */,
 				C0B13CB51D2044EF006B7053 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,8 +689,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0B13CB21D2044EF006B7053 /* ViewController.swift in Sources */,
+				C06F7F3E1FB2358600A52AB4 /* SceneImage.swift in Sources */,
+				C049031E1FB219B50047B028 /* MainViewController.swift in Sources */,
+				C06F7F3C1FB234B400A52AB4 /* Inceptionv3.mlmodel in Sources */,
 				C0B13CB81D2044EF006B7053 /* Personal_Translator.xcdatamodeld in Sources */,
+				C06F7F391FB233B000A52AB4 /* TranslatorScene.swift in Sources */,
 				C06D41E31D628F00002A4E7F /* Translator.swift in Sources */,
 				C0B13CB01D2044EF006B7053 /* AppDelegate.swift in Sources */,
 				C0BC74541D84C9E100D09F80 /* SpeechProcessor.swift in Sources */,
@@ -762,7 +792,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -783,7 +813,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -803,7 +833,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -823,7 +853,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -934,10 +964,11 @@
 					"$(PROJECT_DIR)/frameworks/arm",
 				);
 				INFOPLIST_FILE = "Personal Translator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.carmelouria.Personal-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Personal Translator/Personal Translator-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -957,10 +988,11 @@
 					"$(PROJECT_DIR)/frameworks/arm",
 				);
 				INFOPLIST_FILE = "Personal Translator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.carmelouria.Personal-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Personal Translator/Personal Translator-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
