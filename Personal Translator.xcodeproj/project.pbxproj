@@ -20,9 +20,9 @@
 		C04807AE1D5D2DA100AFD2BC /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */; };
 		C04807AF1D5D31B100AFD2BC /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */; };
 		C049031E1FB219B50047B028 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C049031D1FB219B50047B028 /* MainViewController.swift */; };
+		C05E3E441FB272C300BAD4BB /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C05E3E431FB272C300BAD4BB /* Inceptionv3.mlmodel */; };
 		C06D41E31D628F00002A4E7F /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D41E21D628F00002A4E7F /* Translator.swift */; };
 		C06F7F391FB233B000A52AB4 /* TranslatorScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */; };
-		C06F7F3C1FB234B400A52AB4 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F3B1FB234B300A52AB4 /* Inceptionv3.mlmodel */; };
 		C06F7F3E1FB2358600A52AB4 /* SceneImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */; };
 		C06F7F411FB236B300A52AB4 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C06F7F401FB236B300A52AB4 /* Scene.sks */; };
 		C0B13CB01D2044EF006B7053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */; };
@@ -171,9 +171,9 @@
 		C04807A01D5D07DE00AFD2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C04807AD1D5D2DA100AFD2BC /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchConnectivityManager.swift; path = Shared/WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		C049031D1FB219B50047B028 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C05E3E431FB272C300BAD4BB /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		C06D41E21D628F00002A4E7F /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 		C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorScene.swift; sourceTree = "<group>"; };
-		C06F7F3B1FB234B300A52AB4 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneImage.swift; sourceTree = "<group>"; };
 		C06F7F401FB236B300A52AB4 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		C0B13CAC1D2044EF006B7053 /* Personal Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,7 +302,7 @@
 		C06F7F3A1FB2343300A52AB4 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C06F7F3B1FB234B300A52AB4 /* Inceptionv3.mlmodel */,
+				C05E3E431FB272C300BAD4BB /* Inceptionv3.mlmodel */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -682,8 +682,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C06F7F3E1FB2358600A52AB4 /* SceneImage.swift in Sources */,
+				C05E3E441FB272C300BAD4BB /* Inceptionv3.mlmodel in Sources */,
 				C049031E1FB219B50047B028 /* MainViewController.swift in Sources */,
-				C06F7F3C1FB234B400A52AB4 /* Inceptionv3.mlmodel in Sources */,
 				C0B13CB81D2044EF006B7053 /* Personal_Translator.xcdatamodeld in Sources */,
 				C06F7F391FB233B000A52AB4 /* TranslatorScene.swift in Sources */,
 				C06D41E31D628F00002A4E7F /* Translator.swift in Sources */,
