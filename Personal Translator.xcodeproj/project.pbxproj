@@ -299,15 +299,6 @@
 			name = Translator;
 			sourceTree = "<group>";
 		};
-		C06F7F371FB2337E00A52AB4 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */,
-				C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		C06F7F3A1FB2343300A52AB4 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +310,8 @@
 		C06F7F3F1FB2368200A52AB4 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */,
+				C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */,
 				C06F7F401FB236B300A52AB4 /* Scene.sks */,
 			);
 			path = scene;
@@ -355,7 +348,6 @@
 			children = (
 				C06F7F3F1FB2368200A52AB4 /* scene */,
 				C06F7F3A1FB2343300A52AB4 /* model */,
-				C06F7F371FB2337E00A52AB4 /* view */,
 				C04355231E2C22CA001FCF5A /* Personal Translator.entitlements */,
 				C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */,
 				C0B13CB31D2044EF006B7053 /* Main.storyboard */,
