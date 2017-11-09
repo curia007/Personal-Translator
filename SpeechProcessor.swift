@@ -51,6 +51,77 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
         self.voiceSynthesizer.speak(speechUtterance)
     }
     
+    public func speak(_ text: String, locale : Locale)
+    {
+        let deviceLocale: Locale = Locale.current
+        let translator : Translator = Translator()
+        
+        var source: String = "en"
+        var target: String = "en"
+        
+        if (deviceLocale.languageCode != nil)
+        {
+            source = deviceLocale.languageCode!
+        }
+        
+        if (locale.languageCode != nil)
+        {
+            target = locale.languageCode!
+        }
+        
+        if (source == target)
+        {
+            speak(text: text)
+            return
+        }
+        
+        translator.translate(text: text, source: source, target: target) { (data, response, error) in
+            if (error == nil)
+            {
+                if (data != nil)
+                {
+                    do {
+                        var json: Any?
+                        
+                        try json = JSONSerialization.jsonObject(with: data!, options: [JSONSerialization.ReadingOptions.mutableContainers])
+                        
+                        if let jsonResult = json as? Dictionary<String, Any>
+                        {
+                            debugPrint("json: \(jsonResult)")
+                            
+                            if let dataValue = jsonResult["data"] as? Dictionary<String, Any>
+                            {
+                                debugPrint("translation: \(dataValue)")
+                                
+                                if let translations = dataValue["translations"] as? [Dictionary<String, Any>]
+                                {
+                                    for translation in translations
+                                    {
+                                        if let translatedText = translation["translatedText"] as? String
+                                        {
+                                            debugPrint("translatedText = \(translatedText)")
+                                            self.speak(text: translatedText)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch let jsonError
+                    {
+                        print(jsonError)
+                    }
+                    
+                }
+            }
+            else
+            {
+                debugPrint("error:  \(error.debugDescription)")
+            }
+
+        }
+    }
+    
     public func recognizeSpeech() throws
     {
         // Cancel the previous task if it's running.
@@ -67,7 +138,7 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
-        guard let inputNode = audioEngine.inputNode else { fatalError("Audio engine has no input node") }
+        let inputNode = audioEngine.inputNode
         guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
         
         // Configure request so that results are returned before audio recording is finished
@@ -142,7 +213,6 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
                             debugPrint("error:  \(error.debugDescription)")
                         }
 
-                      
                         })
                  }
                 catch let error
@@ -283,7 +353,8 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
-        guard let inputNode = audioEngine.inputNode else { fatalError("Audio engine has no input node") }
+        let inputNode = audioEngine.inputNode
+        
         guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
         
         // Configure request so that results are returned before audio recording is finished

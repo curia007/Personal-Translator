@@ -2,8 +2,8 @@
 //  NotificationController.swift
 //  Personal Translator Watch Extension
 //
-//  Created by Carmelo I. Uria on 8/11/16.
-//  Copyright © 2016 Carmelo I. Uria. All rights reserved.
+//  Created by Carmelo Uria on 11/8/17.
+//  Copyright © 2017 Carmelo I. Uria. All rights reserved.
 //
 
 import WatchKit
@@ -31,7 +31,7 @@ class NotificationController: WKUserNotificationInterfaceController {
     }
 
     /*
-    override func didReceive(_ notification: UNNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Swift.Void) {
+    override func didReceive(_ notification: UNNotification, withCompletion completionHandler: @escaping (WKUserNotificationInterfaceType) -> Swift.Void) {
         // This method is called when a notification needs to be presented.
         // Implement it if you use a dynamic notification interface.
         // Populate your dynamic notification interface as quickly as possible.

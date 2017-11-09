@@ -17,15 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     var window: UIWindow?
 
-
     @nonobjc func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         if WCSession.isSupported()
         {
-            let defaultSession = WCSession.default()
+            let defaultSession = WCSession.default
   
-            defaultSession.delegate = WatchConnectivityManager.sharedConnectivityManager
             defaultSession.activate()
             
             debugPrint("WCSession is supported and activate")

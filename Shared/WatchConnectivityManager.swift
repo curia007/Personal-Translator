@@ -15,10 +15,10 @@ import WatchConnectivity
  Watch app the receiver is provided with any new morse codes.
  */
 
-@objc protocol WatchConnectivityManagerPhoneDelegate: class
+protocol WatchConnectivityManagerPhoneDelegate: class
 {
-    @objc optional func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, updatedWithVideo video: Data)
-    @objc optional func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, testConnectivity message: String)
+    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, updatedWithVideo video: Data)
+    func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, testConnectivity message: String)
     func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, translateText text: String)
 
     func watchConnectivityManager(_ watchConnectivityManager: WatchConnectivityManager, translate url: URL)
@@ -76,7 +76,7 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate
         
         // NOTE: The guard is here as `watchDirectoryURL` is only available on iOS and this class is used on both platforms.
         #if os(iOS)
-        print("session watch directory URL: \(session.watchDirectoryURL?.absoluteString)")
+            print("session watch directory URL: \(String(describing: session.watchDirectoryURL?.absoluteString))")
         #endif
     }
     
@@ -131,7 +131,7 @@ class WatchConnectivityManager: NSObject, WCSessionDelegate
         
         // NOTE: The guard is here as `watchDirectoryURL` is only available on iOS and this class is used on both platforms.
         #if os(iOS)
-        print("session watch directory URL: \(session.watchDirectoryURL?.absoluteString)")
+            print("session watch directory URL: \(String(describing: session.watchDirectoryURL?.absoluteString))")
         #endif
     }
     

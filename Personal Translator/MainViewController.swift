@@ -11,17 +11,28 @@ import UIKit
 import SpriteKit
 import ARKit
 
+import CoreLocation
+
 @available(iOS 11.0, *)
-class MainViewController: UIViewController, ARSKViewDelegate
+class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDelegate
 {
 
+    @IBOutlet weak var speakButton: UIButton!
     @IBOutlet weak var sceneView: ARSKView!
+    
+    private var currentLocale : Locale = Locale.current
+    
+    private let speechProcessor: SpeechProcessor = SpeechProcessor()
+    private let locationManager: CLLocationManager = CLLocationManager()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        locationManager.delegate = self
+        locationManager.startMonitoringSignificantLocationChanges()
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -32,7 +43,6 @@ class MainViewController: UIViewController, ARSKViewDelegate
         
         let scene = TranslatorScene(size: self.view.frame.size)
         sceneView.presentScene(scene)
-
     }
 
     override func viewWillAppear(_ animated: Bool)
@@ -44,6 +54,7 @@ class MainViewController: UIViewController, ARSKViewDelegate
         
         // Run the view's session
         sceneView.session.run(configuration)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool)
@@ -77,11 +88,13 @@ class MainViewController: UIViewController, ARSKViewDelegate
     {
         // Create and configure a node for the anchor added to the view's session.
         
-        guard let identifier = SceneAnchor.shared.anchorsToIdentifiers[anchor] else
+        guard let identifier : String = SceneAnchor.shared.anchorsToIdentifiers[anchor] else
         {
             return nil
         }
         
+        self.speechProcessor.speak(identifier, locale: currentLocale)
+
         let labelNode = SKLabelNode(text: identifier)
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
@@ -105,5 +118,24 @@ class MainViewController: UIViewController, ARSKViewDelegate
     {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+    
+    // MARK: - CLLocationManagerDelegate Methods
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        if let location: CLLocation = locations.first
+        {
+            let geocoder : CLGeocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
+                if let placemark: CLPlacemark = placemarks?.first
+                {
+                    if let countryCode: String  = placemark.isoCountryCode
+                    {
+                        self.currentLocale = Locale(identifier: countryCode)
+                    }
+                }
+            })
+        }
     }
 }
