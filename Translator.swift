@@ -15,6 +15,7 @@ class Translator
     
     private let GOOGLE_API_KEY: String = "AIzaSyApcfHFfHx8th-mIZkGJZcNQrHBMLsx7CU"
     private let GOOGLE_URL: String = "https://translation.googleapis.com/language/translate/v2?key"
+    private let GOOGLE_SUPPORTED_LANGUAGES = "https://translation.googleapis.com/language/translate/v2/languages?key"
     
     
     func translate(text: String, source: String, target: String, completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
@@ -23,6 +24,16 @@ class Translator
         let urlText: String = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         if let url: URL = self.googleTranslate(text: urlText, source: source, target: target)
+        {
+            self.sessionDataTask = self.session.dataTask(with: url, completionHandler: completionHandler)
+            sessionDataTask?.resume()
+        }
+        
+    }
+    
+    func supportedLanguages(_ completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
+    {
+        if let url = URL(string: GOOGLE_SUPPORTED_LANGUAGES + "=" + GOOGLE_API_KEY)
         {
             self.sessionDataTask = self.session.dataTask(with: url, completionHandler: completionHandler)
             sessionDataTask?.resume()

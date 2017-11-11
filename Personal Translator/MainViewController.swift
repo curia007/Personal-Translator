@@ -14,9 +14,10 @@ import ARKit
 import CoreLocation
 
 @available(iOS 11.0, *)
-class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDelegate
+class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate
 {
 
+    @IBOutlet weak var localeButton: UIButton!
     @IBOutlet weak var speakButton: UIButton!
     @IBOutlet weak var sceneView: ARSKView!
     
@@ -33,6 +34,9 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
         
         locationManager.delegate = self
         locationManager.startMonitoringSignificantLocationChanges()
+        
+        localeButton.layer.cornerRadius = 5.0
+        localeButton.titleLabel?.text = Locale.current.languageCode
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -71,16 +75,45 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    @IBAction func localeAction(_ sender: Any)
+    {
+        debugPrint("<\(#function)>")
+    }
+    
+    @IBAction func speakAction(_ sender: Any)
+    {
+        debugPrint("<\(#function)>")
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        if let identifier : String = segue.identifier
+        {
+            if (identifier == "localeSegueIdentifier")
+            {
+                if let popoverPresentationController: UIPopoverPresentationController = segue.destination.popoverPresentationController
+                {
+                    popoverPresentationController.delegate = self
+                }
+            }
+            
+            if (identifier == "speakSegueIdentifier")
+            {
+                if let popoverPresentationController: UIPopoverPresentationController = segue.destination.popoverPresentationController
+                {
+                    popoverPresentationController.delegate = self
+                }
+                
+            }
+
+        }
     }
-    */
 
     // MARK: - ARSKViewDelegate
     
@@ -133,9 +166,17 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
                     if let countryCode: String  = placemark.isoCountryCode
                     {
                         self.currentLocale = Locale(identifier: countryCode)
+                        self.localeButton.titleLabel?.text = self.currentLocale.languageCode
                     }
                 }
             })
         }
+    }
+    
+    // MARK: - UIPopoverPresentationControllerDelegate methods
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle
+    {
+        return .none
     }
 }

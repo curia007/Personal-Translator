@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01788571DB2C446000BE2F3 /* Speech.framework */; };
+		C03C2F951FB520C900BA6DEE /* LocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C2F941FB520C900BA6DEE /* LocaleViewController.swift */; };
+		C03C2F971FB520EC00BA6DEE /* SpeakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C2F961FB520EC00BA6DEE /* SpeakViewController.swift */; };
 		C049031E1FB219B50047B028 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C049031D1FB219B50047B028 /* MainViewController.swift */; };
 		C05424401FB3B512007B2B74 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C054243E1FB3B512007B2B74 /* Interface.storyboard */; };
 		C05424421FB3B512007B2B74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05424411FB3B512007B2B74 /* Assets.xcassets */; };
@@ -101,6 +103,8 @@
 
 /* Begin PBXFileReference section */
 		C01788571DB2C446000BE2F3 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		C03C2F941FB520C900BA6DEE /* LocaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleViewController.swift; sourceTree = "<group>"; };
+		C03C2F961FB520EC00BA6DEE /* SpeakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakViewController.swift; sourceTree = "<group>"; };
 		C04355231E2C22CA001FCF5A /* Personal Translator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Personal Translator.entitlements"; sourceTree = "<group>"; };
 		C049031D1FB219B50047B028 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C054243C1FB3B512007B2B74 /* Personal Translator Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +273,8 @@
 				C0B13CBE1D2044EF006B7053 /* Info.plist */,
 				C0B13CB61D2044EF006B7053 /* Personal_Translator.xcdatamodeld */,
 				C049031D1FB219B50047B028 /* MainViewController.swift */,
+				C03C2F941FB520C900BA6DEE /* LocaleViewController.swift */,
+				C03C2F961FB520EC00BA6DEE /* SpeakViewController.swift */,
 			);
 			path = "Personal Translator";
 			sourceTree = "<group>";
@@ -528,8 +534,10 @@
 				C06F7F3E1FB2358600A52AB4 /* SceneImage.swift in Sources */,
 				C05E3E441FB272C300BAD4BB /* Inceptionv3.mlmodel in Sources */,
 				C049031E1FB219B50047B028 /* MainViewController.swift in Sources */,
+				C03C2F971FB520EC00BA6DEE /* SpeakViewController.swift in Sources */,
 				C0B13CB81D2044EF006B7053 /* Personal_Translator.xcdatamodeld in Sources */,
 				C06F7F391FB233B000A52AB4 /* TranslatorScene.swift in Sources */,
+				C03C2F951FB520C900BA6DEE /* LocaleViewController.swift in Sources */,
 				C06D41E31D628F00002A4E7F /* Translator.swift in Sources */,
 				C0B13CB01D2044EF006B7053 /* AppDelegate.swift in Sources */,
 				C0BC74541D84C9E100D09F80 /* SpeechProcessor.swift in Sources */,
