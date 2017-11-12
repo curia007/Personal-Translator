@@ -14,14 +14,14 @@ import ARKit
 import CoreLocation
 
 @available(iOS 11.0, *)
-class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate
+class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate, UIPopoverControllerDelegate
 {
 
     @IBOutlet weak var localeButton: UIButton!
     @IBOutlet weak var speakButton: UIButton!
     @IBOutlet weak var sceneView: ARSKView!
     
-    private var currentLocale : Locale = Locale.current
+    var currentLocale : Locale = Locale.current
     
     private let speechProcessor: SpeechProcessor = SpeechProcessor()
     private let locationManager: CLLocationManager = CLLocationManager()
@@ -36,7 +36,7 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
         locationManager.startMonitoringSignificantLocationChanges()
         
         localeButton.layer.cornerRadius = 5.0
-        localeButton.titleLabel?.text = Locale.current.languageCode
+        localeButton.setTitle(currentLocale.localizedString(forIdentifier: currentLocale.languageCode!), for: UIControlState.normal)
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -85,6 +85,16 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
         debugPrint("<\(#function)>")
     }
     
+    @IBAction func unwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        debugPrint("<\(#function)> unwindSegue: \(String(describing: unwindSegue.identifier)) source: \(unwindSegue.source)")
+        
+        if let country: String = Locale.current.localizedString(forIdentifier: currentLocale.languageCode!)
+        {
+            self.localeButton.setTitle(country, for: UIControlState.normal)
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -100,7 +110,7 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
                 if let popoverPresentationController: UIPopoverPresentationController = segue.destination.popoverPresentationController
                 {
                     popoverPresentationController.delegate = self
-                }
+                }                
             }
             
             if (identifier == "speakSegueIdentifier")
@@ -166,7 +176,8 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
                     if let countryCode: String  = placemark.isoCountryCode
                     {
                         self.currentLocale = Locale(identifier: countryCode)
-                        self.localeButton.titleLabel?.text = self.currentLocale.languageCode
+                        
+                        self.localeButton.setTitle(self.currentLocale.localizedString(forIdentifier: self.currentLocale.languageCode!), for: UIControlState.normal)
                     }
                 }
             })
@@ -177,6 +188,15 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle
     {
+        debugPrint("<\(#function)> presentation style: .none")
         return .none
+    }
+    
+    // MARK: - UIPopoverControllerDelegate methods
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController)
+    {
+        debugPrint("<\(#function)>")
+
     }
 }

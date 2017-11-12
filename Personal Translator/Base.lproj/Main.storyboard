@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,11 +43,13 @@
                                 <rect key="frame" x="16" y="697" width="78" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="English">
+                                <state key="normal" title="TEST">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="LfD-Cy-Mze" kind="popoverPresentation" identifier="localeSegueIdentifier" popoverAnchorView="9af-r0-Fn0" id="DaY-M8-3LO">
+                                        <segue key="commit" inheritsFrom="parent" id="V1p-iI-j87"/>
+                                        <segue key="preview" inheritsFrom="commit" id="QXL-88-EEL"/>
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -78,28 +81,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sq3-vj-VIg">
-                                <rect key="frame" x="0.0" y="239" width="375" height="335"/>
+                                <rect key="frame" x="0.0" y="139" width="375" height="277"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <variation key="heightClass=regular-widthClass=regular" hidden="NO"/>
                                 <connections>
                                     <outlet property="dataSource" destination="LfD-Cy-Mze" id="XLm-dJ-e17"/>
                                     <outlet property="delegate" destination="LfD-Cy-Mze" id="ZFd-fZ-n58"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syZ-ta-0Pb">
-                                <rect key="frame" x="16" y="183" width="343" height="86"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Supported Languages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3o-5K-jSj">
+                                <rect key="frame" x="16" y="64" width="343" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                </variation>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs1-iD-Rhk">
+                                <rect key="frame" x="254" y="77" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="YuK-X1-ajt" kind="unwind" identifier="UnwindSegueIdentifier" unwindAction="unwindSegueWithUnwindSegue:" id="caM-AH-o6V"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="gs1-iD-Rhk" id="xej-PT-Iwb"/>
                         <outlet property="pickerView" destination="sq3-vj-VIg" id="g2e-Qv-uSl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkl-lS-jaz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YuK-X1-ajt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1196" y="143.3497536945813"/>
         </scene>
@@ -142,4 +159,7 @@
     <resources>
         <image name="images" width="51" height="51"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DaY-M8-3LO"/>
+    </inferredMetricsTieBreakers>
 </document>

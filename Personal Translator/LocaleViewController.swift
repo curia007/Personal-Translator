@@ -11,9 +11,10 @@ import UIKit
 class LocaleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
 {
 
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    var elements: [Locale] = []
+    var elements: [String] = []
     
     private let translator: Translator = Translator()
     
@@ -22,6 +23,8 @@ class LocaleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        pickerView.showsSelectionIndicator = true
+        
         translator.supportedLanguages { (data, response, error) in
             
             if (error == nil)
@@ -49,7 +52,7 @@ class LocaleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                                         if let countryCode = language["language"] as? String
                                         {
                                             //debugPrint("countrycode = \(countryCode)")
-                                            self.elements.append(Locale(identifier: countryCode))
+                                            self.elements.append(countryCode)
                                         }
                                     }
                                     
@@ -78,30 +81,57 @@ class LocaleViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        debugPrint("<\(#function)> identifier: \(String(describing: segue.identifier))")
+        
+        if (segue.identifier == "UnwindSegueIdentifier")
+        {
+            if let mainViewController: MainViewController = segue.destination as? MainViewController
+            {
+                let index: Int = pickerView.selectedRow(inComponent: 0)
+                mainViewController.currentLocale = Locale(identifier: elements[index])
+            }
+        }
     }
-    */
+    
 
     // MARK: - UIPickerViewDelegate methods
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        let locale: Locale = elements[row]
-        
-        return Locale.current.localizedString(forLanguageCode: locale.languageCode!)
-    }
+    //func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    //{
+    //    return Locale.current.localizedString(forLanguageCode: elements[row])
+    //}
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        debugPrint("<\(#function)>")
+        debugPrint("<\(#function)> elements[\(row)]: \(elements[row])")
+        //self.dismiss(animated: true) {
+        //    debugPrint("<\(#function)> dismissing picker")
+            //self.performSegue(withIdentifier: "TEST", sender: nil)
+        //}
+        doneButton.isHidden = false
     }
     
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString?
+    {
+        if let countryString: String = Locale.current.localizedString(forLanguageCode: elements[row])
+        {
+            let attributes: [NSAttributedStringKey : Any] = [NSAttributedStringKey.foregroundColor : UIColor.white, NSAttributedStringKey.font : UIFont.preferredFont(forTextStyle: .largeTitle)]
+            let country: NSAttributedString = NSAttributedString(string: countryString, attributes: attributes)
+            
+            return country
+        }
+        
+        return NSAttributedString(string: elements[row])
+    }
     // MARK: - UIPickerViewDataSource methods
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
