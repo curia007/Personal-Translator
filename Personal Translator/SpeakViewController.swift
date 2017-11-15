@@ -7,24 +7,70 @@
 //
 
 import UIKit
+import Speech
 
-class SpeakViewController: UIViewController
+import AudioKit
+import AudioKitUI
+
+class SpeakViewController: UIViewController, SFSpeechRecognitionTaskDelegate
 {
+
+    @IBOutlet weak var outputPlot: EZAudioPlot!
+    
+    var currentLocale: Locale = Locale.current
+    
+    private let speechProcessor: SpeechProcessor = SpeechProcessor()
+    
+    private let microphone: AKMicrophone = AKMicrophone()
+    
+    private var tracker: AKFrequencyTracker!
+    private var silence: AKBooster!
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        AKSettings.audioInputEnabled = true
+        tracker = AKFrequencyTracker(microphone)
+        silence = AKBooster(tracker, gain: 0)
+
+        do
+        {
+            try speechProcessor.startRecording()
+        }
+        catch
+        {
+            print("<\(#function)> error: \(error)")
+        }
     }
 
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        AudioKit.output = silence
+        AudioKit.start()
+        setupPlot()
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+    func setupPlot()
+    {
+        let plot = AKNodeOutputPlot(microphone, frame: outputPlot.bounds)
+        plot.plotType = .buffer
+        plot.shouldFill = true
+        plot.shouldMirror = true
+        plot.color = UIColor.blue
+        outputPlot.addSubview(plot)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -35,4 +81,32 @@ class SpeakViewController: UIViewController
     }
     */
 
+    // MARK: - SFSpeechRecognitionTaskDelegate methods
+    
+    func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool)
+    {
+        debugPrint("<>\(#function) successfully: \(successfully)")
+    }
+    
+    func speechRecognitionTaskFinishedReadingAudio(_ task: SFSpeechRecognitionTask)
+    {
+        debugPrint("<\(#function)> task: \(task)")
+
+    }
+    
+    func speechRecognitionDidDetectSpeech(_ task: SFSpeechRecognitionTask)
+    {
+        debugPrint("<\(#function)> task: \(task)")
+
+    }
+    
+    func speechRecognitionTaskWasCancelled(_ task: SFSpeechRecognitionTask)
+    {
+        debugPrint("<\(#function)>")
+    }
+    
+    func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishRecognition recognitionResult: SFSpeechRecognitionResult)
+    {
+        debugPrint("<\(#function)> recognition result: \(recognitionResult)")
+    }
 }

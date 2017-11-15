@@ -122,10 +122,69 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
         }
     }
     
-    public func recognizeSpeech() throws
+    func startRecording() throws {
+        
+        // Cancel the previous task if it's running.
+        if let recognitionTask = recognitionTask {
+            recognitionTask.cancel()
+            self.recognitionTask = nil
+        }
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        try audioSession.setCategory(AVAudioSessionCategoryRecord)
+        try audioSession.setMode(AVAudioSessionModeMeasurement)
+        try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        
+        let inputNode: AVAudioNode = audioEngine.inputNode
+        
+        guard let recognitionRequest = recognitionRequest else
+        {
+            fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object")
+        }
+        
+        // Configure request so that results are returned before audio recording is finished
+        recognitionRequest.shouldReportPartialResults = true
+        
+        // A recognition task represents a speech recognition session.
+        // We keep a reference to the task so that it can be cancelled.
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
+            var isFinal = false
+            
+            if let result = result
+            {
+                isFinal = result.isFinal
+                
+                // check results
+                debugPrint("<\(#function)> result: \(result.bestTranscription.formattedString)")
+                isFinal = true
+            }
+            
+            if error != nil || isFinal {
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+                
+                self.recognitionRequest = nil
+                self.recognitionTask = nil
+            }
+        }
+        
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+            self.recognitionRequest?.append(buffer)
+        }
+        
+        audioEngine.prepare()
+        
+        // recording started
+        try audioEngine.start()
+    }
+
+    func recognizeSpeech(_ source: Locale, target: Locale, delegate: SFSpeechRecognitionTaskDelegate) throws
     {
         // Cancel the previous task if it's running.
-        if let recognitionTask = recognitionTask
+        if let recognitionTask: SFSpeechRecognitionTask = recognitionTask
         {
             recognitionTask.cancel()
             self.recognitionTask = nil
@@ -144,8 +203,22 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
         // Configure request so that results are returned before audio recording is finished
         recognitionRequest.shouldReportPartialResults = true
         
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+            self.recognitionRequest?.append(buffer)
+        }
+        
+        audioEngine.prepare()
+        
+        try audioEngine.start()
+
         // A recognition task represents a speech recognition session.
         // We keep a reference to the task so that it can be cancelled.
+        if let recognitionTask: SFSpeechRecognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, delegate: delegate)
+        {
+            debugPrint("\(#function) task state: \(String(describing: recognitionTask.state))")
+            self.recognitionTask = recognitionTask
+        /*
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
             var isFinal = false
             var text: String = ""
@@ -169,7 +242,7 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
                     try audioSession.setCategory(AVAudioSessionCategoryPlayback)
                     let translator: Translator = Translator()
 
-                    translator.translate(text: text, source: "en", target: "es", completionHandler: { (data, response, error) in
+                    translator.translate(text: text, source: source.languageCode!, target: target.languageCode!, completionHandler: { (data, response, error) in
                         if (error == nil)
                         {
                             if (data != nil)
@@ -222,18 +295,11 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
 
             }
         }
+        */
         
-        let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
-            self.recognitionRequest?.append(buffer)
         }
-        
-        audioEngine.prepare()
-        
-        try audioEngine.start()
-        
     }
-
+    
     public func recognizeFile(url: URL)
     {
         guard let recognizer = SFSpeechRecognizer() else {

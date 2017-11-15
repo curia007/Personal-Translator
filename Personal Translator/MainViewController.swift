@@ -105,7 +105,7 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
 
         if let identifier : String = segue.identifier
         {
-            if (identifier == "localeSegueIdentifier")
+            if (identifier == "LocaleSegueIdentifier")
             {
                 if let popoverPresentationController: UIPopoverPresentationController = segue.destination.popoverPresentationController
                 {
@@ -113,13 +113,16 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
                 }                
             }
             
-            if (identifier == "speakSegueIdentifier")
+            if (identifier == "SpeakSegueIdentifier")
             {
-                if let popoverPresentationController: UIPopoverPresentationController = segue.destination.popoverPresentationController
+                let destination: SpeakViewController = segue.destination as! SpeakViewController
+                
+                if let popoverPresentationController: UIPopoverPresentationController = destination.popoverPresentationController
                 {
                     popoverPresentationController.delegate = self
                 }
                 
+                destination.currentLocale = self.currentLocale
             }
 
         }

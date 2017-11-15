@@ -34,7 +34,9 @@
                                 <state key="normal" image="images"/>
                                 <connections>
                                     <action selector="speakAction:" destination="BYZ-38-t0r" eventType="touchDown" id="4Sk-iA-EIV"/>
-                                    <segue destination="ZF0-Vb-D98" kind="popoverPresentation" identifier="speakSegueIdentifier" popoverAnchorView="wgZ-f8-58M" id="0Me-LV-Fhw">
+                                    <segue destination="ZF0-Vb-D98" kind="popoverPresentation" identifier="SpeakSegueIdentifier" popoverAnchorView="wgZ-f8-58M" id="0Me-LV-Fhw">
+                                        <segue key="commit" inheritsFrom="parent" id="LPq-Rk-mS4"/>
+                                        <segue key="preview" inheritsFrom="commit" id="ej6-qo-Ej4"/>
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -47,7 +49,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LfD-Cy-Mze" kind="popoverPresentation" identifier="localeSegueIdentifier" popoverAnchorView="9af-r0-Fn0" id="DaY-M8-3LO">
+                                    <segue destination="LfD-Cy-Mze" kind="popoverPresentation" identifier="LocaleSegueIdentifier" popoverAnchorView="9af-r0-Fn0" id="DaY-M8-3LO">
                                         <segue key="commit" inheritsFrom="parent" id="V1p-iI-j87"/>
                                         <segue key="preview" inheritsFrom="commit" id="QXL-88-EEL"/>
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -131,12 +133,21 @@
                     <view key="view" contentMode="scaleToFill" id="Ose-OE-USe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ylo-Sb-dw5" customClass="EZAudioPlot" customModule="Personal_Translator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="61" width="375" height="390"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="outputPlot" destination="ylo-Sb-dw5" id="b2m-kc-OOe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBE-gM-4dI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="828"/>
+            <point key="canvasLocation" x="1196" y="846.79802955665025"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ca8-7B-sgj">
@@ -160,6 +171,7 @@
         <image name="images" width="51" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="0Me-LV-Fhw"/>
         <segue reference="DaY-M8-3LO"/>
     </inferredMetricsTieBreakers>
 </document>
