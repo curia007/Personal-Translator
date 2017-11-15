@@ -16,6 +16,8 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
     private let voiceSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
     private let audioEngine = AVAudioEngine()
 
+    private let translator: Translator = Translator()
+    
     private var speechRecognizer: SFSpeechRecognizer?
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -122,7 +124,8 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
         }
     }
     
-    func startRecording() throws {
+    func startRecording(_ source: Locale, target: Locale) throws
+    {
         
         // Cancel the previous task if it's running.
         if let recognitionTask = recognitionTask {
@@ -158,6 +161,16 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
                 
                 // check results
                 debugPrint("<\(#function)> result: \(result.bestTranscription.formattedString)")
+                
+                if (target.languageCode == source.languageCode)
+                {
+                    self.speak(text: result.bestTranscription.formattedString)
+                }
+                else
+                {
+                    self.speak(result.bestTranscription.formattedString, locale: target)
+                }
+                
                 isFinal = true
             }
             

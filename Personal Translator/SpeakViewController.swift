@@ -38,7 +38,7 @@ class SpeakViewController: UIViewController, SFSpeechRecognitionTaskDelegate
 
         do
         {
-            try speechProcessor.startRecording()
+            try speechProcessor.startRecording(Locale.current, target: currentLocale)
         }
         catch
         {
@@ -55,6 +55,11 @@ class SpeakViewController: UIViewController, SFSpeechRecognitionTaskDelegate
         setupPlot()
     }
     
+    override func viewDidDisappear(_ animated: Bool)
+    {
+        super.viewDidDisappear(animated)
+        
+    }
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
