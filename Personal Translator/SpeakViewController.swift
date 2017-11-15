@@ -68,6 +68,8 @@ class SpeakViewController: UIViewController, SFSpeechRecognitionTaskDelegate
         plot.shouldFill = true
         plot.shouldMirror = true
         plot.color = UIColor.blue
+        plot.gain = 3.0
+        plot.backgroundColor = UIColor.clear
         outputPlot.addSubview(plot)
     }
     

@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C000C01A1FBCBE19008339AD /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C000C0181FBCBE19008339AD /* AudioKit.framework */; };
-		C000C01B1FBCBE19008339AD /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C000C0181FBCBE19008339AD /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C000C01C1FBCBE19008339AD /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C000C0191FBCBE19008339AD /* AudioKitUI.framework */; };
-		C000C01D1FBCBE19008339AD /* AudioKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C000C0191FBCBE19008339AD /* AudioKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01788571DB2C446000BE2F3 /* Speech.framework */; };
 		C03C2F951FB520C900BA6DEE /* LocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C2F941FB520C900BA6DEE /* LocaleViewController.swift */; };
 		C03C2F971FB520EC00BA6DEE /* SpeakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C2F961FB520EC00BA6DEE /* SpeakViewController.swift */; };
@@ -24,6 +20,10 @@
 		C05424541FB3B512007B2B74 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05424531FB3B512007B2B74 /* ComplicationController.swift */; };
 		C05424561FB3B512007B2B74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05424551FB3B512007B2B74 /* Assets.xcassets */; };
 		C054245B1FB3B512007B2B74 /* Personal Translator Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C054243C1FB3B512007B2B74 /* Personal Translator Watch.app */; };
+		C05D874F1FBCEDB20093935E /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05D874D1FBCEDB20093935E /* AudioKitUI.framework */; };
+		C05D87501FBCEDB20093935E /* AudioKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C05D874D1FBCEDB20093935E /* AudioKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C05D87511FBCEDB20093935E /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05D874E1FBCEDB20093935E /* AudioKit.framework */; };
+		C05D87521FBCEDB20093935E /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C05D874E1FBCEDB20093935E /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C05E3E441FB272C300BAD4BB /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C05E3E431FB272C300BAD4BB /* Inceptionv3.mlmodel */; };
 		C06D41E31D628F00002A4E7F /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D41E21D628F00002A4E7F /* Translator.swift */; };
 		C06F7F391FB233B000A52AB4 /* TranslatorScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */; };
@@ -71,18 +71,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C000C01E1FBCBE19008339AD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C000C01D1FBCBE19008339AD /* AudioKitUI.framework in Embed Frameworks */,
-				C000C01B1FBCBE19008339AD /* AudioKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C04807AB1D5D07DE00AFD2BC /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,11 +93,21 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C05D87531FBCEDB20093935E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C05D87521FBCEDB20093935E /* AudioKit.framework in Embed Frameworks */,
+				C05D87501FBCEDB20093935E /* AudioKitUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C000C0181FBCBE19008339AD /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = frameworks/AudioKit.framework; sourceTree = "<group>"; };
-		C000C0191FBCBE19008339AD /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = frameworks/AudioKitUI.framework; sourceTree = "<group>"; };
 		C01788571DB2C446000BE2F3 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		C03C2F941FB520C900BA6DEE /* LocaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleViewController.swift; sourceTree = "<group>"; };
 		C03C2F961FB520EC00BA6DEE /* SpeakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakViewController.swift; sourceTree = "<group>"; };
@@ -127,13 +125,13 @@
 		C05424551FB3B512007B2B74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C05424571FB3B512007B2B74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C05424581FB3B512007B2B74 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C05D874D1FBCEDB20093935E /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKitUI.framework; sourceTree = "<group>"; };
+		C05D874E1FBCEDB20093935E /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		C05E3E431FB272C300BAD4BB /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		C06D41E21D628F00002A4E7F /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 		C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorScene.swift; sourceTree = "<group>"; };
 		C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneImage.swift; sourceTree = "<group>"; };
 		C06F7F401FB236B300A52AB4 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
-		C0A4BE871FBCBB6000753ACE /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = "Personal Translator/frameworks/AudioKitUI.framework"; sourceTree = "<group>"; };
-		C0A4BE881FBCBB6000753ACE /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = "Personal Translator/frameworks/AudioKit.framework"; sourceTree = "<group>"; };
 		C0B13CAC1D2044EF006B7053 /* Personal Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B13CB41D2044EF006B7053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,8 +162,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C000C01C1FBCBE19008339AD /* AudioKitUI.framework in Frameworks */,
-				C000C01A1FBCBE19008339AD /* AudioKit.framework in Frameworks */,
+				C05D87511FBCEDB20093935E /* AudioKit.framework in Frameworks */,
+				C05D874F1FBCEDB20093935E /* AudioKitUI.framework in Frameworks */,
 				C01788581DB2C446000BE2F3 /* Speech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,8 +247,8 @@
 		C0B13CA31D2044EF006B7053 = {
 			isa = PBXGroup;
 			children = (
-				C000C0181FBCBE19008339AD /* AudioKit.framework */,
-				C000C0191FBCBE19008339AD /* AudioKitUI.framework */,
+				C05D874E1FBCEDB20093935E /* AudioKit.framework */,
+				C05D874D1FBCEDB20093935E /* AudioKitUI.framework */,
 				C04807AC1D5D2C7D00AFD2BC /* Shared */,
 				C0B13CAE1D2044EF006B7053 /* Personal Translator */,
 				C0B13CC61D2044EF006B7053 /* Personal TranslatorTests */,
@@ -314,8 +312,6 @@
 		C0CE563A1D23675700A08150 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C0A4BE881FBCBB6000753ACE /* AudioKit.framework */,
-				C0A4BE871FBCBB6000753ACE /* AudioKitUI.framework */,
 				C01788571DB2C446000BE2F3 /* Speech.framework */,
 				C0BC8B591D6B634500818679 /* libz.tbd */,
 				C0CE56411D236A4600A08150 /* libstdc++.tbd */,
@@ -368,7 +364,7 @@
 				C0B13CA91D2044EF006B7053 /* Frameworks */,
 				C0B13CAA1D2044EF006B7053 /* Resources */,
 				C04807AB1D5D07DE00AFD2BC /* Embed Watch Content */,
-				C000C01E1FBCBE19008339AD /* Embed Frameworks */,
+				C05D87531FBCEDB20093935E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
