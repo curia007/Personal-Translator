@@ -59,7 +59,9 @@ class SpeakViewController: UIViewController, SFSpeechRecognitionTaskDelegate
     {
         super.viewDidDisappear(animated)
         
+        AudioKit.stop()
     }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -68,7 +70,7 @@ class SpeakViewController: UIViewController, SFSpeechRecognitionTaskDelegate
 
     func setupPlot()
     {
-        let plot = AKNodeOutputPlot(microphone, frame: outputPlot.bounds)
+        let plot: AKNodeOutputPlot = AKNodeOutputPlot(microphone, frame: outputPlot.bounds)
         plot.plotType = .buffer
         plot.shouldFill = true
         plot.shouldMirror = true
