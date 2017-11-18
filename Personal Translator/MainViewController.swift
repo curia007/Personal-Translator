@@ -32,7 +32,22 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
 
         // Do any additional setup after loading the view.
         
+        if (CLLocationManager.locationServicesEnabled() == false)
+        {
+            // create the alert
+            let alert = UIAlertController(title: "Location Services", message: "Location Services is not Available.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
         
         localeButton.layer.cornerRadius = 5.0
@@ -67,6 +82,9 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
         
         // Pause the view's session
         sceneView.session.pause()
+        
+        // stop location manager
+        locationManager.startUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning()
@@ -151,12 +169,13 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
     func session(_ session: ARSession, didFailWithError error: Error)
     {
         // Present an error message to the user
-        
+        debugPrint("<\(#function)> did fail with error: \(error)")
     }
     
     func sessionWasInterrupted(_ session: ARSession)
     {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay
+        debugPrint("<\(#function)> session was interrupted...")
         
     }
     
@@ -185,6 +204,11 @@ class MainViewController: UIViewController, ARSKViewDelegate, CLLocationManagerD
                 }
             })
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
+    {
+        debugPrint("<\(#function)> status: \(status)")
     }
     
     // MARK: - UIPopoverPresentationControllerDelegate methods
