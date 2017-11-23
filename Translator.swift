@@ -17,7 +17,6 @@ class Translator
     private let GOOGLE_URL: String = "https://translation.googleapis.com/language/translate/v2?key"
     private let GOOGLE_SUPPORTED_LANGUAGES = "https://translation.googleapis.com/language/translate/v2/languages?key"
     
-    
     func translate(text: String, source: String, target: String, completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
     {
         // convert text
@@ -44,7 +43,7 @@ class Translator
     private func googleTranslate(text: String, source: String, target: String) -> URL?
     {
         
-        let urlString: String = GOOGLE_URL + "=" + GOOGLE_API_KEY + "&source=\(source)" + "&target=\(target)&q=\(text)"
+        let urlString: String = GOOGLE_URL + "=" + GOOGLE_API_KEY + "&source=\(source)" + "&model=nmt&target=\(target)&q=\(text)"
         if let url: URL = URL(string: urlString)
         {
             return url

@@ -23,6 +23,7 @@ class InterfaceController: WKInterfaceController
     private var currentLocale : Locale = Locale.current
 
     private let speechSynthesizer: AVSpeechSynthesizer = AVSpeechSynthesizer()
+    private let speechProcessor: SpeechProcessor = SpeechProcessor()
 
     override func awake(withContext context: Any?)
     {
@@ -40,12 +41,19 @@ class InterfaceController: WKInterfaceController
         setupScene()
         setupFire()
         
-        let fileManager: FileManager = FileManager()
+        let fileManager: FileManager = FileManager.default
 
         let options: [AnyHashable: Any] = [WKAudioRecorderControllerOptionsActionTitleKey: "Translate"]
         let url : URL = URL(string: fileManager.temporaryDirectory.absoluteString + "input.wav")!
+        debugPrint("<\(#function)> url: \(url)")
+        
         self.presentAudioRecorderController(withOutputURL: url, preset: .highQualityAudio, options: options) { (isComplete, error) in
-            debugPrint("<\(#function)> isComplete: \(isComplete) error: \(String(describing: error))")
+                debugPrint("<\(#function)> isComplete: \(isComplete) error: \(String(describing: error))")
+                if (isComplete)
+                {
+                    self.speechToText(url.absoluteString)
+                }
+            
         }
     }
     
@@ -61,6 +69,8 @@ class InterfaceController: WKInterfaceController
         super.didDeactivate()
     }
 
+    // MARK: - private methods
+    
     private func setupView()
     {
         interfaceScene.showsStatistics = false
@@ -86,7 +96,46 @@ class InterfaceController: WKInterfaceController
         scene = SCNScene()
         interfaceScene.scene = scene
     }
-
+    
+    private func speechToText(_ file: String)
+    {
+        guard let url : URL = URL(string: file) else
+        {
+            print("<\(#function)> file could not be found...")
+            return
+        }
+        
+        let fileManager: FileManager = FileManager.default
+        guard let data: Data = fileManager.contents(atPath: url.relativePath) else
+        {
+            print("<\(#function)> file could not be found...")
+            return
+        }
+        
+        let locale: Locale = Locale(identifier: "es")
+        speechProcessor.recognize(data: data, locale: locale) { (responseData, response, error) in
+            if (error == nil)
+            {
+                if let returnData : Data = responseData
+                {
+                    do
+                    {
+                        let json: Any = try JSONSerialization.jsonObject(with: returnData, options: [JSONSerialization.ReadingOptions.mutableContainers])
+                    
+                        debugPrint("<\(#function)> json: \(json)")
+                    }
+                    catch
+                    {
+                        print("<\(#function)> error: \(error)")
+                    }
+                }
+            }
+            else
+            {
+                print("<#function> error: \(String(describing: error))")
+            }
+        }
+    }
 }
 
 // MARK: - SCNSceneRendererDelegate Extension
@@ -95,6 +144,7 @@ extension InterfaceController: SCNSceneRendererDelegate
 {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval)
     {
+        //debugPrint("<\(#function)> update at time: \(time)")
     }
 }
 

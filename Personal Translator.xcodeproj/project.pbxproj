@@ -29,6 +29,7 @@
 		C06F7F391FB233B000A52AB4 /* TranslatorScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */; };
 		C06F7F3E1FB2358600A52AB4 /* SceneImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */; };
 		C06F7F411FB236B300A52AB4 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C06F7F401FB236B300A52AB4 /* Scene.sks */; };
+		C09A054E1FC20D0A00E3E070 /* SpeechProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A054D1FC20D0A00E3E070 /* SpeechProcessor.swift */; };
 		C0B13CB01D2044EF006B7053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */; };
 		C0B13CB51D2044EF006B7053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B13CB31D2044EF006B7053 /* Main.storyboard */; };
 		C0B13CB81D2044EF006B7053 /* Personal_Translator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0B13CB61D2044EF006B7053 /* Personal_Translator.xcdatamodeld */; };
@@ -135,6 +136,7 @@
 		C06F7F381FB233B000A52AB4 /* TranslatorScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorScene.swift; sourceTree = "<group>"; };
 		C06F7F3D1FB2358600A52AB4 /* SceneImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneImage.swift; sourceTree = "<group>"; };
 		C06F7F401FB236B300A52AB4 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
+		C09A054D1FC20D0A00E3E070 /* SpeechProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechProcessor.swift; sourceTree = "<group>"; };
 		C0B13CAC1D2044EF006B7053 /* Personal Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B13CAF1D2044EF006B7053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B13CB41D2044EF006B7053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		C054243D1FB3B512007B2B74 /* Personal Translator Watch */ = {
 			isa = PBXGroup;
 			children = (
+				C09A054B1FC20CE200E3E070 /* New Group */,
 				C054243E1FB3B512007B2B74 /* Interface.storyboard */,
 				C05424411FB3B512007B2B74 /* Assets.xcassets */,
 				C05424431FB3B512007B2B74 /* Info.plist */,
@@ -212,6 +215,7 @@
 		C054244C1FB3B512007B2B74 /* Personal Translator Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C09A054C1FC20CEC00E3E070 /* processor */,
 				C054244D1FB3B512007B2B74 /* InterfaceController.swift */,
 				C054244F1FB3B512007B2B74 /* ExtensionDelegate.swift */,
 				C05424511FB3B512007B2B74 /* NotificationController.swift */,
@@ -251,6 +255,21 @@
 				C06F7F401FB236B300A52AB4 /* Scene.sks */,
 			);
 			path = scene;
+			sourceTree = "<group>";
+		};
+		C09A054B1FC20CE200E3E070 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C09A054C1FC20CEC00E3E070 /* processor */ = {
+			isa = PBXGroup;
+			children = (
+				C09A054D1FC20D0A00E3E070 /* SpeechProcessor.swift */,
+			);
+			path = processor;
 			sourceTree = "<group>";
 		};
 		C0B13CA31D2044EF006B7053 = {
@@ -551,6 +570,7 @@
 				C05424541FB3B512007B2B74 /* ComplicationController.swift in Sources */,
 				C05424501FB3B512007B2B74 /* ExtensionDelegate.swift in Sources */,
 				C054244E1FB3B512007B2B74 /* InterfaceController.swift in Sources */,
+				C09A054E1FC20D0A00E3E070 /* SpeechProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -391,6 +391,13 @@ class SpeechProcessor : NSObject, SFSpeechRecognizerDelegate
         }
     }
 
+    func speechToText()
+    {
+        
+    }
+    
+    // MARK: - private methods
+    
     private func authorize()
     {
         SFSpeechRecognizer.requestAuthorization { (status) in
