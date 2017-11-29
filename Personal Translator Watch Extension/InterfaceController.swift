@@ -33,9 +33,9 @@ class InterfaceController: WKInterfaceController
         speechSynthesisVoice = AVSpeechSynthesisVoice(identifier: currentLocale.languageCode!)
         
         // TEST
-        let utterance: AVSpeechUtterance = AVSpeechUtterance(string: "Bond, James Bond")
-        utterance.voice = speechSynthesisVoice
-        speechSynthesizer.speak(utterance)
+        //let utterance: AVSpeechUtterance = AVSpeechUtterance(string: "My name is Megan")
+        //utterance.voice = speechSynthesisVoice
+        //speechSynthesizer.speak(utterance)
         
         setupView()
         setupScene()
@@ -44,14 +44,14 @@ class InterfaceController: WKInterfaceController
         let fileManager: FileManager = FileManager.default
 
         let options: [AnyHashable: Any] = [WKAudioRecorderControllerOptionsActionTitleKey: "Translate"]
-        let url : URL = URL(string: fileManager.temporaryDirectory.absoluteString + "input.wav")!
+        let url : URL = URL(string: fileManager.temporaryDirectory.absoluteString + "input.m4a")!
         debugPrint("<\(#function)> url: \(url)")
         
         self.presentAudioRecorderController(withOutputURL: url, preset: .highQualityAudio, options: options) { (isComplete, error) in
                 debugPrint("<\(#function)> isComplete: \(isComplete) error: \(String(describing: error))")
                 if (isComplete)
                 {
-                    self.speechToText(url.absoluteString)
+                    self.speechToText(url.absoluteString, true)
                 }
             
         }
@@ -97,7 +97,7 @@ class InterfaceController: WKInterfaceController
         interfaceScene.scene = scene
     }
     
-    private func speechToText(_ file: String)
+    private func speechToText(_ file: String, _ useIBM: Bool)
     {
         guard let url : URL = URL(string: file) else
         {
@@ -105,15 +105,28 @@ class InterfaceController: WKInterfaceController
             return
         }
         
+        if (useIBM == true)
+        {
+            callIBMService(url)
+        }
+        else
+        {
+            callGoggleService(url)
+        }
+    }
+    
+    private func callIBMService(_ url: URL)
+    {
         let fileManager: FileManager = FileManager.default
         guard let data: Data = fileManager.contents(atPath: url.relativePath) else
         {
             print("<\(#function)> file could not be found...")
             return
         }
-        
-        let locale: Locale = Locale(identifier: "es")
-        speechProcessor.recognize(data: data, locale: locale) { (responseData, response, error) in
+
+        let locale: Locale = Locale(identifier: "en-US")
+        speechProcessor.recognize("BroadbandModel", locale: locale, data: data) { (responseData, response, error) in
+            
             if (error == nil)
             {
                 if let returnData : Data = responseData
@@ -121,8 +134,16 @@ class InterfaceController: WKInterfaceController
                     do
                     {
                         let json: Any = try JSONSerialization.jsonObject(with: returnData, options: [JSONSerialization.ReadingOptions.mutableContainers])
-                    
-                        debugPrint("<\(#function)> json: \(json)")
+                        
+                        let response: [String : Any] = json as! [String : Any]
+                        
+                        if (response["error"] != nil)
+                        {
+                            let error: String = response["error"] as! String
+                            print("<\(#function)> error: \(String(describing: error))")
+                        }
+                        
+                        debugPrint("<\(#function)> response: \(response)")
                     }
                     catch
                     {
@@ -135,6 +156,50 @@ class InterfaceController: WKInterfaceController
                 print("<#function> error: \(String(describing: error))")
             }
         }
+
+    }
+    
+    private func callGoggleService(_ url: URL)
+    {
+        let fileManager: FileManager = FileManager.default
+        guard let data: Data = fileManager.contents(atPath: url.relativePath) else
+        {
+            print("<\(#function)> file could not be found...")
+            return
+        }
+        
+        let locale: Locale = Locale(identifier: "en-US")
+        speechProcessor.recognize(data, locale: locale) { (responseData, response, error) in
+            if (error == nil)
+            {
+                if let returnData : Data = responseData
+                {
+                    do
+                    {
+                        let json: Any = try JSONSerialization.jsonObject(with: returnData, options: [JSONSerialization.ReadingOptions.mutableContainers])
+                        
+                        let response: [String : Any] = json as! [String : Any]
+                        
+                        if (response["error"] != nil)
+                        {
+                            let error: [String : Any] = response["error"] as! [String : Any]
+                            print("<\(#function)> error: \(String(describing: error["message"]))")
+                        }
+                        
+                        debugPrint("<\(#function)> response: \(response)")
+                    }
+                    catch
+                    {
+                        print("<\(#function)> error: \(error)")
+                    }
+                }
+            }
+            else
+            {
+                print("<#function> error: \(String(describing: error))")
+            }
+        }
+
     }
 }
 

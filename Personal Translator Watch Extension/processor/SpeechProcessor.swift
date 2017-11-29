@@ -15,9 +15,13 @@ class SpeechProcessor
     
     private let GOOGLE_API_KEY: String = "AIzaSyApcfHFfHx8th-mIZkGJZcNQrHBMLsx7CU"
     private let GOOGLE_OAUTH_URL: String = "https://www.googleapis.com/auth/cloud-platform"
+    private let IBM_USERNAME: String = ""
+    private let IBM_PASSWORD: String = ""
+    
     private let GOOGLE_RECOGNIZE_URL: String = "https://speech.googleapis.com/v1/speech:recognize?key"
-
-    func recognize(data: Data, locale: Locale, completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
+    private let IBM_RECOGNIZE_URL: String = "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize"
+    
+    func recognize(_ data: Data, locale: Locale, completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
     {
         let urlString : String = GOOGLE_RECOGNIZE_URL + "=" + GOOGLE_API_KEY
         if let url: URL = URL(string: urlString)
@@ -30,13 +34,18 @@ class SpeechProcessor
                 let config: [String : Any] = createConfigOjbect(languagueCode)
                 let audio: [String : Any] = createAudioObject(data)
             
-                let content: [String : Any] = ["config" : config, "audio" : audio]
+                let content: [String : Any] = ["audio" : audio, "config" : config]
             
-                debugPrint("<#function> content: \(content)")
+                if (JSONSerialization.isValidJSONObject(content) == true)
+                {
+                    debugPrint("JSON is valid")
+                }
+                
+                debugPrint("<\(#function)> content: \(content)")
                 
                 do
                 {
-                    let jsonData: Data = try JSONSerialization.data(withJSONObject: content, options: .prettyPrinted)
+                    let jsonData: Data = try JSONSerialization.data(withJSONObject: content, options: .sortedKeys)
             
                         request.httpBody = jsonData
                 }
@@ -52,6 +61,50 @@ class SpeechProcessor
         }
     }
     
+    func recognize(_ model : String,  locale: Locale, data: Data, completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
+    {
+        let urlString : String = IBM_RECOGNIZE_URL
+        if let url: URL = URL(string: urlString)
+        {
+            let authorization: String = "Basic " + IBM_USERNAME + ":" + IBM_PASSWORD
+            var request: URLRequest = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            request.addValue(authorization, forHTTPHeaderField: "Authorization")
+            request.addValue("audio/wav", forHTTPHeaderField: "Content-Type")
+            
+            if let languagueCode: String = locale.languageCode
+            {
+                let languageModel : String = languagueCode + "_" + model
+                let content: [String] = [data.base64EncodedString()]
+                
+                debugPrint("<\(#function)> model: \(languageModel)")
+                
+                if (JSONSerialization.isValidJSONObject(content) == true)
+                {
+                    debugPrint("JSON is valid")
+                }
+                
+                debugPrint("<\(#function)> content: \(content)")
+                
+                do
+                {
+                    let jsonData: Data = try JSONSerialization.data(withJSONObject: content, options: .sortedKeys)
+                    
+                    request.httpBody = jsonData
+                }
+                catch
+                {
+                    print("<\(#function)> error: \(error)")
+                    return
+                }
+                
+                self.sessionDataTask = self.session.dataTask(with: request, completionHandler: completionHandler)
+                sessionDataTask?.resume()
+            }
+        }
+    }
+
     // MARK: - private methods
     
     private func createConfigOjbect(_ languageCode: String) -> [String : Any]
@@ -59,7 +112,7 @@ class SpeechProcessor
         var configuration: [String : Any] = [:]
         
         configuration["encoding"] = "LINEAR16"
-        configuration["sampleRateHertz"] = 1600
+        configuration["sampleRateHertz"] = 44100
         configuration["languageCode"] = languageCode
         
         return configuration
