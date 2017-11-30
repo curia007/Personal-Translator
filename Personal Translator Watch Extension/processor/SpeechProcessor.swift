@@ -63,22 +63,27 @@ class SpeechProcessor
     
     func recognize(_ model : String,  locale: Locale, data: Data, completionHandler: @escaping ((Data?, URLResponse?, Error?)) -> Void)
     {
-        let urlString : String = IBM_RECOGNIZE_URL
-        if let url: URL = URL(string: urlString)
+        //https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?model=en-US_NarrowbandModel&inactivity_timeout=30000
+
+        if let languageCode: String = locale.languageCode
         {
-            let authorization: String = "Basic " + IBM_USERNAME + ":" + IBM_PASSWORD
-            var request: URLRequest = URLRequest(url: url)
-            request.httpMethod = "POST"
-            
-            request.addValue(authorization, forHTTPHeaderField: "Authorization")
-            request.addValue("audio/wav", forHTTPHeaderField: "Content-Type")
-            
-            if let languagueCode: String = locale.languageCode
+            let languageModel : String = languageCode + "_" + model
+
+            debugPrint("<\(#function)> model: \(languageModel)")
+
+            let urlString : String = IBM_RECOGNIZE_URL + "&inactivity_timeout=30000"
+            if let url: URL = URL(string: urlString)
             {
-                let languageModel : String = languagueCode + "_" + model
+
+                let authorization: String = "Basic " + IBM_USERNAME + ":" + IBM_PASSWORD
+                var request: URLRequest = URLRequest(url: url)
+                request.httpMethod = "POST"
+            
+                request.addValue(authorization, forHTTPHeaderField: "Authorization")
+                request.addValue("audio/basic", forHTTPHeaderField: "Content-Type")
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
                 let content: [String] = [data.base64EncodedString()]
-                
-                debugPrint("<\(#function)> model: \(languageModel)")
                 
                 if (JSONSerialization.isValidJSONObject(content) == true)
                 {
@@ -86,7 +91,7 @@ class SpeechProcessor
                 }
                 
                 debugPrint("<\(#function)> content: \(content)")
-                
+            
                 do
                 {
                     let jsonData: Data = try JSONSerialization.data(withJSONObject: content, options: .sortedKeys)
@@ -100,7 +105,7 @@ class SpeechProcessor
                 }
                 
                 self.sessionDataTask = self.session.dataTask(with: request, completionHandler: completionHandler)
-                sessionDataTask?.resume()
+                    sessionDataTask?.resume()
             }
         }
     }
