@@ -112,6 +112,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C0153F811FD751AA00209FC6 /* Personal Translator Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Personal Translator Watch.entitlements"; sourceTree = "<group>"; };
+		C0153F821FD751C400209FC6 /* Personal Translator Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Personal Translator Watch Extension.entitlements"; sourceTree = "<group>"; };
 		C01788571DB2C446000BE2F3 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		C03C2F941FB520C900BA6DEE /* LocaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleViewController.swift; sourceTree = "<group>"; };
 		C03C2F961FB520EC00BA6DEE /* SpeakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		C054243D1FB3B512007B2B74 /* Personal Translator Watch */ = {
 			isa = PBXGroup;
 			children = (
+				C0153F811FD751AA00209FC6 /* Personal Translator Watch.entitlements */,
 				C09A054B1FC20CE200E3E070 /* New Group */,
 				C054243E1FB3B512007B2B74 /* Interface.storyboard */,
 				C05424411FB3B512007B2B74 /* Assets.xcassets */,
@@ -215,6 +218,7 @@
 		C054244C1FB3B512007B2B74 /* Personal Translator Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C0153F821FD751C400209FC6 /* Personal Translator Watch Extension.entitlements */,
 				C09A054C1FC20CEC00E3E070 /* processor */,
 				C054244D1FB3B512007B2B74 /* InterfaceController.swift */,
 				C054244F1FB3B512007B2B74 /* ExtensionDelegate.swift */,
@@ -453,10 +457,20 @@
 					C054243B1FB3B512007B2B74 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C05424471FB3B512007B2B74 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C0B13CAB1D2044EF006B7053 = {
 						CreatedOnToolsVersion = 8.0;
@@ -667,6 +681,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator Watch Extension/Personal Translator Watch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32SL43PW6T;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -689,6 +704,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator Watch Extension/Personal Translator Watch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32SL43PW6T;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -712,6 +728,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator Watch/Personal Translator Watch.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32SL43PW6T;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -735,6 +752,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "Personal Translator Watch/Personal Translator Watch.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32SL43PW6T;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

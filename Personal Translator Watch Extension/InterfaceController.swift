@@ -33,9 +33,9 @@ class InterfaceController: WKInterfaceController
         speechSynthesisVoice = AVSpeechSynthesisVoice(identifier: currentLocale.languageCode!)
         
         // TEST
-        //let utterance: AVSpeechUtterance = AVSpeechUtterance(string: "My name is Megan")
-        //utterance.voice = speechSynthesisVoice
-        //speechSynthesizer.speak(utterance)
+        let utterance: AVSpeechUtterance = AVSpeechUtterance(string: "My name is Megan")
+        utterance.voice = speechSynthesisVoice
+        speechSynthesizer.speak(utterance)
         
         setupView()
         setupScene()
@@ -44,14 +44,14 @@ class InterfaceController: WKInterfaceController
         let fileManager: FileManager = FileManager.default
 
         let options: [AnyHashable: Any] = [WKAudioRecorderControllerOptionsActionTitleKey: "Translate"]
-        let url : URL = URL(string: fileManager.temporaryDirectory.absoluteString + "input.m4a")!
+        let url : URL = URL(string: fileManager.temporaryDirectory.absoluteString + "input.wav")!
         debugPrint("<\(#function)> url: \(url)")
         
-        self.presentAudioRecorderController(withOutputURL: url, preset: .highQualityAudio, options: options) { (isComplete, error) in
+        self.presentAudioRecorderController(withOutputURL: url, preset: .wideBandSpeech, options: options) { (isComplete, error) in
                 debugPrint("<\(#function)> isComplete: \(isComplete) error: \(String(describing: error))")
                 if (isComplete)
                 {
-                    self.speechToText(url.absoluteString, true)
+                    self.speechToText(url.absoluteString, false)
                 }
             
         }

@@ -28,7 +28,8 @@ class SpeechProcessor
         {
             var request: URLRequest = URLRequest(url: url)
             request.httpMethod = "POST"
-            
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+
             if let languagueCode: String = locale.languageCode
             {
                 let config: [String : Any] = createConfigOjbect(languagueCode)
@@ -45,9 +46,8 @@ class SpeechProcessor
                 
                 do
                 {
-                    let jsonData: Data = try JSONSerialization.data(withJSONObject: content, options: .sortedKeys)
-            
-                        request.httpBody = jsonData
+                    let jsonData: Data = try JSONSerialization.data(withJSONObject: content)
+                    request.httpBody = jsonData
                 }
                 catch
                 {
@@ -71,7 +71,7 @@ class SpeechProcessor
 
             debugPrint("<\(#function)> model: \(languageModel)")
 
-            let urlString : String = IBM_RECOGNIZE_URL + "&inactivity_timeout=30000"
+            let urlString : String = IBM_RECOGNIZE_URL + "&inactivity_timeout=-1"
             if let url: URL = URL(string: urlString)
             {
 
@@ -117,7 +117,7 @@ class SpeechProcessor
         var configuration: [String : Any] = [:]
         
         configuration["encoding"] = "LINEAR16"
-        configuration["sampleRateHertz"] = 44100
+        configuration["sampleRateHertz"] = 16000
         configuration["languageCode"] = languageCode
         
         return configuration
